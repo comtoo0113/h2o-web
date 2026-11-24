@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>소식 — H2O 게임</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/site.css">
+<script src="js/space.js" defer></script>
+<script src="js/site.js" defer></script>
+<script src="js/seoul_news.js" defer></script>
+</head>
+<body class="p-news">
+<nav class="nav"><a class="logo" href="index.html"><i></i>H2O 게임</a><a class="m" href="index.html">홈</a><a class="m" href="games/seoul.html">서울탈출</a><a class="m" href="games/joseon.html">조선좀비</a><a class="m" href="games/tilt.html">기울기 볼</a><a class="m" href="videos.html">영상</a><a class="m on" href="news.html">소식</a><a class="m" href="about.html">만든 사람</a></nav>
+
+<main class="page">
+  <div class="sec-h" style="max-width:none">
+    <div class="kick">소식</div>
+    <h2 style="font-size:44px;font-weight:800">새 소식</h2>
+    <p>게임마다 판(버전)이 오를 때 바뀐 것을 적어요. 가장 새것이 위에 있어요.</p>
+    <div class="pick" data-dock><a class="btn" href="#seoul">서울탈출</a><a class="btn" href="#joseon">조선좀비</a><a class="btn" href="#tilt">기울기 볼</a></div>
+  </div>
+
+  <section class="sec" id="seoul" style="margin-top:48px">
+    <div class="sec-h"><div class="kick">서울탈출</div><h2>고친 것 · 더한 것</h2></div>
+    <div id="news"></div>
+  </section>
+
+  <section class="sec" id="joseon">
+    <div class="sec-h"><div class="kick">조선좀비</div><h2>개발 중</h2><p>소식 글은 아직 없어요.</p></div>
+  </section>
+
+  <section class="sec" id="tilt">
+    <div class="sec-h"><div class="kick">기울기 볼</div><h2>개발 중</h2><p>소식 글은 아직 없어요.</p></div>
+  </section>
+</main>
+
+<footer class="foot"><span><b>H2O 게임</b> · 혼자 만드는 게임들</span><span>화면은 모두 개발 중 모습이라 바뀔 수 있어요</span><span class="r">글꼴 Pretendard · SIL OFL 1.1</span></footer>
+<script>
+addEventListener('DOMContentLoaded',function(){
+  if(window.renderNews&&window.SEOUL_NEWS)renderNews(document.getElementById('news'),SEOUL_NEWS,15);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>서울탈출 — H2O 게임</title>
+<meta name="description" content="봉쇄된 서울, 건물 안으로 들어가 뒤지고 싸운 뒤 위로 올라가 빠져나오는 도트 생존 게임.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../css/site.css">
+<script src="../js/space.js" defer></script>
+<script src="../js/site.js" defer></script>
+<script src="../js/seoul_news.js" defer></script>
+</head>
+<body class="p-seoul">
+<nav class="nav"><a class="logo" href="../index.html"><i></i>H2O 게임</a><a class="m" href="../index.html">홈</a><a class="m on" href="seoul.html">서울탈출</a><a class="m" href="joseon.html">조선좀비</a><a class="m" href="tilt.html">기울기 볼</a><a class="m" href="../videos.html">영상</a><a class="m" href="../news.html">소식</a><a class="m" href="../about.html">만든 사람</a></nav>
+
+<main class="page">
+
+<header class="hero">
+  <div>
+    <div class="kick">도트 생존 · 같이 하기</div>
+    <h1>서울탈출</h1>
+    <p class="lead">봉쇄된 서울에서 버티는 도트 생존 게임이에요. 셸터에서 짐을 챙겨 건물 안으로 들어가고, 뒤지고 싸운 뒤 <b>위로 올라가</b> 빠져나와요. 살아 나오면 가져온 것이 내 것이에요.</p>
+    <div class="tags"><em>도트 그래픽</em><em>생존</em><em>탈출</em><em>한 팀 최대 3명</em><em>PC · 키보드 마우스</em></div>
+    <div class="state"><i></i>개발 중 · 공개 시험 준비 중</div>
+  </div>
+  <div>
+    <div class="ph vid"><video src="../assets/seoul/v_trailer.mp4" poster="../assets/seoul/09_roof.webp" muted controls playsinline preload="metadata"></video></div>
+    <p class="cap">예고 영상 · 소리 없음</p>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#story">이야기</a><a href="#flow">한 판의 흐름</a><a href="#places">건물</a><a href="#enemies">적</a><a href="#gear">무기와 몸</a><a href="#shelter">셸터</a><a href="#market">장터</a><a href="#play">할 거리</a><a href="#coop">같이 하기</a><a href="#access">누구나</a><a href="#keys">키</a><a href="#test">공개 시험</a><a href="#gallery">사진</a><a href="#updates">소식</a>
+</nav>
+
+<section class="sec" id="story">
+  <div class="sec-h"><div class="kick">이야기</div><h2>봉쇄, 그리고 가스</h2></div>
+  <div class="story">
+    <p>감염 사태가 번지자 정부는 서울을 봉쇄했어요. 국가 재난 사태가 내려졌지만 봉쇄가 너무 빨라 미처 나오지 못한 사람이 많았어요. 남은 사람들은 모여서 버티거나, 남의 것을 빼앗으며 살아가요.</p>
+    <p>감염체의 시체가 쌓인 곳에는 썩은 가스가 고여요. 높은 방벽에 막혀 흩어지지도 않아요. 조금 마셔서는 괜찮지만, 몸에 쌓인 양을 늘 살펴야 해요.</p>
+    <p>구조는 끊겼어요. 나가는 길은 스스로 찾아야 해요.</p>
+  </div>
+</section>
+
+<section class="sec" id="flow" data-gal>
+  <div class="sec-h"><div class="kick">한 판의 흐름</div><h2>챙기고, 싸우고, 나와라</h2><p>땅 위 출구가 아니라 위로 올라가서 나가요. 한 판은 이렇게 흘러가요.</p></div>
+  <div class="split">
+    <ol class="flow">
+      <li><b>셸터(내 집)에서 장비와 가방을 챙겨요.</b> 시장에서 사고팔고 상인 의뢰를 받아요.</li>
+      <li><b>출격 지도에서 건물을 골라요.</b> 낮 15분 · 밤 15분이 모두에게 같이 흘러요.</li>
+      <li><b>같은 건물을 고른 사람들과 한 판에 들어가요.</b> 한 판에 최대 4팀, 팀마다 다른 출입구에서 시작해요.</li>
+      <li><b>상자와 가구를 뒤져 물건을 챙겨요.</b> 감염체 · 약탈자 · 다른 팀과 싸우거나 몰래 피해요.</li>
+      <li><b>시간이 지나면 1층 문이 잠겨요.</b> 가스가 아래부터 차올라요.</li>
+      <li><b>위로 올라가 빠져나가요.</b> 옥상 집라인 · 완강기 · 신호탄. 옥상에는 약탈자 두목 무리가 있어요.</li>
+      <li><b>살아 나오면 가져온 물건이 내 것이 돼요.</b> 죽으면 가진 것을 모두 잃어요. 보험 든 장비만 돌아와요.</li>
+    </ol>
+    <div class="phs">
+      <div class="ph vid"><video src="../assets/seoul/v_loop.mp4" poster="../assets/seoul/v_loop_p.webp" muted loop controls playsinline preload="metadata"></video><span class="lab">영상 · 한 판</span></div>
+      <div class="grid g2">
+        <div class="ph" data-big="../assets/seoul/04_map.webp" data-cap="출격 지도 — 건물을 고르는 곳"><img src="../assets/seoul/04_map_s.webp" alt="출격 지도" loading="lazy"><span class="lab">출격 지도</span></div>
+        <div class="ph" data-big="../assets/seoul/15_loot.webp" data-cap="상자와 가구를 뒤져 물건 챙기기"><img src="../assets/seoul/15_loot_s.webp" alt="뒤지기" loading="lazy"><span class="lab">뒤지기</span></div>
+        <div class="ph" data-big="../assets/seoul/17_gas.webp" data-cap="아래층부터 차오르는 가스"><img src="../assets/seoul/17_gas_s.webp" alt="차오르는 가스" loading="lazy"><span class="lab">가스</span></div>
+        <div class="ph" data-big="../assets/seoul/09_roof.webp" data-cap="옥상 — 빠져나가는 곳"><img src="../assets/seoul/09_roof_s.webp" alt="옥상" loading="lazy"><span class="lab">옥상</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="places" data-gal>
+  <div class="sec-h"><div class="kick">건물</div><h2>들어갈 곳을 골라라</h2><p>판마다 방 · 계단 · 출입구 · 상자 자리가 바뀌어요. 같은 건물이라도 낮과 밤, 비, 정전, 가스 누출에 따라 다른 판이 돼요. 아래 설명은 게임 속 출격 지도에 적힌 글 그대로예요.</p></div>
+  <div class="grid g3">
+    <div class="card bld"><div class="ph" data-big="../assets/seoul/07_hospital.webp" data-cap="종합병원"><img src="../assets/seoul/07_hospital_s.webp" alt="종합병원" loading="lazy"></div><h3>종합병원</h3><p>여기서 시작됐습니다. 응급실에 실려 온 첫 환자 하나, 실패한 격리.</p></div>
+    <div class="card bld"><div class="ph" data-big="../assets/seoul/08_mall.webp" data-cap="상가 건물"><img src="../assets/seoul/08_mall_s.webp" alt="상가 건물" loading="lazy"></div><h3>상가 건물</h3><p>봉쇄 전날 사재기 인파가 몰렸다가, 안에서 터졌습니다.</p></div>
+    <div class="card bld"><div class="ph" data-big="../assets/seoul/12_school.webp" data-cap="고등학교"><img src="../assets/seoul/12_school_s.webp" alt="고등학교" loading="lazy"></div><h3>고등학교</h3><p>임시 대피소로 쓰이던 학교. 체육관에 모인 사람들 중 한 명이 감염돼 있었습니다.</p></div>
+    <div class="card bld"><div class="ph" data-big="../assets/seoul/10_bridge.webp" data-cap="한강 다리"><img src="../assets/seoul/10_bridge_s.webp" alt="한강 다리" loading="lazy"></div><h3>한강 다리</h3><p>멈춘 차로 막힌 다리. 숨을 데는 차 뒤뿐이고, 북단 검문소는 약탈자 것입니다.</p></div>
+    <div class="card bld"><div class="ph" data-big="../assets/seoul/11_tunnel.webp" data-cap="지하철 터널"><img src="../assets/seoul/11_tunnel_s.webp" alt="지하철 터널" loading="lazy"></div><h3>지하철 터널</h3><p>불 꺼진 선로 두 줄. 가운데 역은 약탈자 진지고, 멈춘 전동차가 길을 막습니다.</p></div>
+    <div class="card bld"><div class="ph" data-big="../assets/seoul/13_site.webp" data-cap="재개발 공사장"><img src="../assets/seoul/13_site_s.webp" alt="재개발 공사장" loading="lazy"></div><h3>재개발 공사장</h3><p>담장 안 흙바닥에 짓다 만 뼈대와 컨테이너. 사방이 트여 있고, 뒷문은 약탈자가 지킵니다.</p></div>
+    <div class="card bld"><div class="ph" data-big="../assets/seoul/14_base.webp" data-cap="군부대"><img src="../assets/seoul/14_base_s.webp" alt="군부대" loading="lazy"></div><h3>군부대</h3><p>부대가 무너지자 일부는 탈영해 무기고를 열었습니다. 지금은 그들 것입니다.</p></div>
+    <div class="card bld"><h3>연립주택</h3><p>사태 첫 주에 비워진 다세대. 못 들고 간 살림만 남았습니다.</p><h3 style="margin-top:18px">사무동</h3><p>월요일 오전 회의 중에 대피 방송이 났습니다. 비상계단에서 사람들이 엉켰습니다.</p></div>
+    <div class="card bld"><h3>터미널</h3><p>열차가 멈추던 순간 승강장에 갇힌 사람들. 전기는 끊기고 비상등만 남았습니다.</p><h3 style="margin-top:18px">여의도 헬기장</h3><p>봉쇄선 너머로 가는 마지막 길. 방송국 옥상 헬기장에 헬기가 옵니다.</p></div>
+  </div>
+
+  <div class="sub grid g2">
+    <div class="card">
+      <h3>판마다 일어나는 일</h3>
+      <ul class="dots">
+        <li>갇힌 생존자 구출 · 보급기 추락 · 화재 · 침수 같은 사건이 판마다 달라요.</li>
+        <li>낮과 밤, 비, 정전, 가스 누출이 판의 모습을 바꿔요.</li>
+        <li>지하 발전기를 켜면 승강기에 전기가 들어와요. 같이 탄 사람은 모두 함께 옮겨 가요.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>건물마다 쓸 수 있는 장치</h3>
+      <ul class="dots">
+        <li>학교 방송실 · 병원 비상 발전기 · 지하철에 세워 둔 버스 · 군부대 탄약고 · 사무동 방재실 제어반 · 상가 관리실 열쇠 · 빌라 무인 택배함.</li>
+        <li>방송으로 감염체를 한쪽으로 몰고, 방화 셔터나 버스로 길을 막고, 탄약고 폭약을 터뜨려요.</li>
+        <li>택배함 비밀번호는 집 어딘가의 쪽지에 있어요.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="enemies">
+  <div class="sec-h"><div class="kick">적</div><h2>소리를 듣고 온다</h2><p>소리가 벽을 따라 퍼지고, 적도 그 소리를 듣고 찾아와요. 손전등 불빛도 내 자리를 알려요.</p></div>
+  <div class="split rev">
+    <div class="grid" style="gap:16px">
+      <div class="card">
+        <h3>감염체</h3>
+        <div class="names"><span>걷는 감염체</span><span>기는 감염체</span><span>들개 떼</span><span>잠긴 문을 부수는 덩치</span><span>방호복 입은 방역 요원</span></div>
+      </div>
+      <div class="card">
+        <h3>약탈자</h3>
+        <p>엄폐물 뒤에 숨고 수류탄을 던지고, 옥상에서 저격해요. 건물마다 이름 있는 두목이 있어요.</p>
+        <div class="names"><span>집주인 최씨</span><span>보안실장</span><span>경비대장 강씨</span><span>체육 선생</span><span>역장</span><span>수간호사</span><span>통행료 오씨</span><span>두더지</span><span>현장 소장 장씨</span><span>탈영 소령</span></div>
+      </div>
+      <div class="card">
+        <h3>싸우지 않고 지나가기</h3>
+        <p>감염체와 약탈자는 서로도 싸워요. 벽돌을 던져 소리로 꾀어내고, 조용히 걸어 등 뒤로 지나갈 수 있어요.</p>
+      </div>
+    </div>
+    <div class="ph vid"><video src="../assets/seoul/v_enemies.mp4" poster="../assets/seoul/v_enemies_p.webp" muted loop controls playsinline preload="metadata"></video><span class="lab">영상 · 적</span></div>
+  </div>
+</section>
+
+<section class="sec" id="gear" data-gal>
+  <div class="sec-h"><div class="kick">무기와 몸</div><h2>고쳐 쓰고, 아껴 쏘라</h2></div>
+  <div class="split">
+    <div class="grid" style="gap:16px">
+      <div class="card">
+        <h3>총과 부착물</h3>
+        <div class="names"><span>K2 소총</span><span>K1A 기관단총</span><span>K5 권총</span><span>K14 저격소총</span><span>엽총</span><span>쇠파이프 사제 총</span></div>
+        <p>소음기 · 조준경 · 대용량 탄창 같은 부착물을 달고 뗄 수 있어요. 근접 무기도 있어요.</p>
+      </div>
+      <div class="card">
+        <h3>던지는 것 · 놓는 것</h3>
+        <div class="names"><span>수류탄</span><span>섬광탄</span><span>최루탄</span><span>연막탄</span><span>벽돌</span><span>인계철선</span><span>곰덫</span></div>
+      </div>
+      <div class="card">
+        <h3>몸</h3>
+        <ul class="dots">
+          <li>엿보기 · 앉기 · 조용히 걷기. 종이상자를 뒤집어쓰고 숨을 수도 있어요.</li>
+          <li>출혈 · 골절 · 상처 감염은 따로 치료해야 해요.</li>
+          <li>야간 투시경과 손전등으로 어두운 층을 지나요.</li>
+          <li>쓰러지면 결과 창에 마지막 한 방이 남아요 — 누가, 어떤 총과 탄으로, 어디를, 얼마나 떨어져서 쐈는지.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phs">
+      <div class="ph vid"><video src="../assets/seoul/v_guns.mp4" poster="../assets/seoul/v_guns_p.webp" muted loop controls playsinline preload="metadata"></video><span class="lab">영상 · 무기</span></div>
+      <div class="grid g2">
+        <div class="ph" data-big="../assets/seoul/05_parts.webp" data-cap="총 부착물 달기"><img src="../assets/seoul/05_parts_s.webp" alt="총 부착물" loading="lazy"><span class="lab">부착물</span></div>
+        <div class="ph" data-big="../assets/seoul/16_throw.webp" data-cap="던지기"><img src="../assets/seoul/16_throw_s.webp" alt="던지기" loading="lazy"><span class="lab">던지기</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="shelter" data-gal>
+  <div class="sec-h"><div class="kick">셸터</div><h2>돌아와 쉬고, 꾸며라</h2><p>살아 돌아온 물건은 내 집에 쌓여요. 집을 넓히고, 가구를 놓고, 가져온 것을 진열해요.</p></div>
+  <div class="split rev">
+    <div class="grid" style="gap:16px">
+      <div class="card">
+        <h3>집</h3>
+        <div class="names"><span>고시원</span><span>반지하 원룸</span><span>옥탑방</span><span>복층</span><span>빌라 투룸</span><span>민방위 대피소</span><span>옥상 컨테이너</span><span>폐역 역무실</span><span>상가 2층 통째로</span><span>한강뷰 펜트하우스</span></div>
+        <p>집마다 그 집다운 곳이 있어요. 반지하의 쇠창살 창, 옥탑방 장독대, 빌라의 통유리 베란다, 펜트하우스의 유리 난간 테라스.</p>
+      </div>
+      <div class="card">
+        <h3>꾸미기</h3>
+        <p>가구를 놓고, 바닥재와 벽지를 칸마다 바꿔요. 잘못 놓으면 <kbd>Ctrl</kbd> + <kbd>Z</kbd> 로 되돌려요.</p>
+        <div class="names"><span>의자 · 탁자</span><span>침대</span><span>수납</span><span>진열</span><span>주방</span><span>욕실</span><span>가전</span><span>불빛</span><span>장식</span><span>작업 · 사무</span><span>운동</span><span>텃밭 · 생수</span><span>길거리 · 폐품</span><span>고급</span></div>
+      </div>
+      <div class="card">
+        <h3>집에서 하는 일</h3>
+        <ul class="dots">
+          <li>텃밭을 가꾸고, 요리하고, 청소해요. 한강에 나가 낚시도 해요.</li>
+          <li>발전기 · 작업대 · 약품 선반을 들여놓아요.</li>
+          <li>보관함은 찾기 칸과 분류로 정리해요.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phs">
+      <div class="ph vid"><video src="../assets/seoul/v_shelter.mp4" poster="../assets/seoul/v_shelter_p.webp" muted loop controls playsinline preload="metadata"></video><span class="lab">영상 · 셸터</span></div>
+      <div class="grid g3">
+        <div class="ph" data-big="../assets/seoul/01_shelter.webp" data-cap="셸터(내 집)"><img src="../assets/seoul/01_shelter_s.webp" alt="셸터" loading="lazy"></div>
+        <div class="ph" data-big="../assets/seoul/06_deco.webp" data-cap="셸터 꾸미기"><img src="../assets/seoul/06_deco_s.webp" alt="셸터 꾸미기" loading="lazy"></div>
+        <div class="ph" data-big="../assets/seoul/03_stash.webp" data-cap="보관함 — 찾기 칸과 분류"><img src="../assets/seoul/03_stash_s.webp" alt="보관함" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="market" data-gal>
+  <div class="sec-h"><div class="kick">장터</div><h2>사고팔고, 준비하라</h2></div>
+  <div class="split">
+    <div class="card">
+      <ul class="dots">
+        <li>상인에게 사고팔고, 장비에 보험을 들어요.</li>
+        <li>용병을 데리고 나갈 수 있어요.</li>
+        <li>사격장에서 총을 익히고, 헬스장에서 몸을 만들어요.</li>
+        <li>프리마켓에서 다른 사람과 거래해요.</li>
+      </ul>
+    </div>
+    <div class="ph" data-big="../assets/seoul/02_market.webp" data-cap="장터"><img src="../assets/seoul/02_market.webp" alt="장터" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="sec" id="play">
+  <div class="sec-h"><div class="kick">할 거리</div><h2>오늘은 무엇을 할까</h2></div>
+  <div class="grid g3">
+    <div class="card"><h3>이야기</h3><p>장터 사람들의 이야기를 따라 임무를 해요. 결말은 넷이에요.</p></div>
+    <div class="card"><h3>의뢰와 과제</h3><p>상인 의뢰, 일일 · 주간 과제, 현상금, 갇힌 생존자 구조.</p></div>
+    <div class="card"><h3>겨루기</h3><p>주간 도전과 순위표. 처음부터 다시 하는 회차에도 쌓인 덤은 남아요.</p></div>
+    <div class="card"><h3>캐릭터</h3><p>부품을 골라 꾸미거나, 도트를 한 칸씩 직접 찍어 내 캐릭터를 만들어요.</p></div>
+    <div class="card"><h3>진열</h3><p>집에 가져온 물건을 진열장에 올려 두고 모아요.</p></div>
+    <div class="card"><h3>모드</h3><p>그림 · 소리 · 가구를 직접 만들어 넣을 수 있어요.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="coop">
+  <div class="sec-h"><div class="kick">같이 하기</div><h2>한 팀은 최대 3명</h2></div>
+  <div class="split">
+    <ol class="flow">
+      <li>한 사람이 <b>「파티 만들기」</b>를 누르면 방 코드 4글자가 나와요.</li>
+      <li>친구는 방 코드를 넣고 <b>「들어가기」</b>를 눌러요.</li>
+      <li>같은 건물로 출격하면 한 팀으로 들어가요.</li>
+    </ol>
+    <div class="card">
+      <ul class="dots">
+        <li>한 판에 최대 4팀, 팀마다 다른 출입구에서 시작해요. 다른 팀은 적이에요.</li>
+        <li>연결이 끊겨도 다시 켜면 그 판으로 돌아가요.</li>
+        <li>혼자 해도 인터넷이 필요해요. 진행은 서버에 저장돼요.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="access">
+  <div class="sec-h"><div class="kick">누구나</div><h2>내 손에 맞게</h2></div>
+  <div class="card">
+    <ul class="dots">
+      <li>키를 바꿀 수 있고, 게임패드도 일부 쓸 수 있어요.</li>
+      <li>조준 · 달리기 · 앉기 · 조용히 걷기는 누르는 동안만 켤지, 한 번 눌러 켜고 끌지 고를 수 있어요.</li>
+      <li>설정은 여덟 쪽으로 나뉘어 있고, 설정 찾기 칸으로 바로 찾아요.</li>
+      <li>색약 화면 · 소리 보이기 · 글자 크기 · 밝기 · 명암을 맞춰요.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="keys">
+  <div class="sec-h"><div class="kick">키</div><h2>기본 키</h2></div>
+  <div class="keys">
+    <div class="card"><h3>움직이기</h3>
+      <div class="krow"><span class="k"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span>이동</div>
+      <div class="krow"><span class="k"><kbd>Shift</kbd></span>달리기</div>
+      <div class="krow"><span class="k"><kbd>Ctrl</kbd></span>조용히 걷기</div>
+      <div class="krow"><span class="k"><kbd>X</kbd></span>앉기</div>
+    </div>
+    <div class="card"><h3>싸우기</h3>
+      <div class="krow"><span class="k"><kbd>왼클릭</kbd></span>쏘기</div>
+      <div class="krow"><span class="k"><kbd>오른클릭</kbd></span>조준해서 쏘기</div>
+      <div class="krow"><span class="k"><kbd>R</kbd></span>재장전</div>
+      <div class="krow"><span class="k"><kbd>V</kbd></span>근접 공격</div>
+      <div class="krow"><span class="k"><kbd>B</kbd></span>사격 방식</div>
+      <div class="krow"><span class="k"><kbd>T</kbd></span>벽돌 던져 소리로 꾀기</div>
+      <div class="krow"><span class="k"><kbd>N</kbd></span>종이상자</div>
+    </div>
+    <div class="card"><h3>물건 · 장비</h3>
+      <div class="krow"><span class="k"><kbd>F</kbd><i>또는</i><kbd>E</kbd></span>줍기 · 뒤지기 · 문</div>
+      <div class="krow"><span class="k"><kbd>Tab</kbd><i>또는</i><kbd>I</kbd></span>가방</div>
+      <div class="krow"><span class="k"><kbd>G</kbd></span>단축 칸 원형 메뉴</div>
+      <div class="krow"><span class="k"><kbd>H</kbd></span>회복약</div>
+      <div class="krow"><span class="k"><kbd>L</kbd></span>손전등</div>
+      <div class="krow"><span class="k"><kbd>J</kbd></span>야간 투시경</div>
+    </div>
+    <div class="card"><h3>그 밖에</h3>
+      <div class="krow"><span class="k"><kbd>M</kbd></span>단말기 · 지도 · 의뢰</div>
+      <div class="krow"><span class="k"><kbd>Z</kbd><i>또는</i><kbd>휠</kbd></span>핑</div>
+      <div class="krow"><span class="k"><kbd>Enter</kbd></span>채팅</div>
+      <div class="krow"><span class="k"><kbd>C</kbd></span>셸터 꾸미기</div>
+      <div class="krow"><span class="k"><kbd>F1</kbd></span>도움말</div>
+      <div class="krow"><span class="k"><kbd>F8</kbd></span>의견 보내기</div>
+      <div class="krow"><span class="k"><kbd>F9</kbd></span>사진 모드</div>
+      <div class="krow"><span class="k"><kbd>Esc</kbd></span>메뉴</div>
+    </div>
+  </div>
+  <p class="note">키는 Esc → 설정에서 바꿀 수 있어요.</p>
+</section>
+
+<section class="sec" id="test">
+  <div class="sec-h"><div class="kick">공개 시험</div><h2>먼저 해 보실 분을 모실 예정이에요</h2><p>게임물관리위원회의 시험용 게임물 확인을 받은 뒤 모집해요. 날짜는 준비 중이에요.</p></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>이렇게 열어요</h3>
+      <ul class="dots">
+        <li>60일 이내, 2만 명 이하로 열어요.</li>
+        <li>완전 무료예요.</li>
+        <li>만 14세 이상만 참여할 수 있어요.</li>
+        <li>PC에서 키보드와 마우스로 해요.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>미리 알아 두세요</h3>
+      <ul class="dots">
+        <li>시험이 끝나면 모든 진행을 지워요. 정식 출시로 이어지지 않아요.</li>
+        <li>시험 중에도 내용과 밸런스가 계속 바뀌어요.</li>
+        <li>폭발과 번쩍이는 화면이 나와요.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="gallery">
+  <div class="sec-h"><div class="kick">사진</div><h2>게임 화면</h2><p>모두 개발 중인 게임에서 찍은 화면이에요. 누르면 크게 볼 수 있어요.</p></div>
+  <div class="gal" data-gal>
+    <div class="ph" data-big="../assets/seoul/01_shelter.webp" data-cap="셸터(내 집)"><img src="../assets/seoul/01_shelter_s.webp" alt="셸터" loading="lazy"><span class="lab">셸터</span></div>
+    <div class="ph" data-big="../assets/seoul/06_deco.webp" data-cap="셸터 꾸미기"><img src="../assets/seoul/06_deco_s.webp" alt="셸터 꾸미기" loading="lazy"><span class="lab">꾸미기</span></div>
+    <div class="ph" data-big="../assets/seoul/03_stash.webp" data-cap="보관함"><img src="../assets/seoul/03_stash_s.webp" alt="보관함" loading="lazy"><span class="lab">보관함</span></div>
+    <div class="ph" data-big="../assets/seoul/02_market.webp" data-cap="장터"><img src="../assets/seoul/02_market_s.webp" alt="장터" loading="lazy"><span class="lab">장터</span></div>
+    <div class="ph" data-big="../assets/seoul/04_map.webp" data-cap="출격 지도"><img src="../assets/seoul/04_map_s.webp" alt="출격 지도" loading="lazy"><span class="lab">출격 지도</span></div>
+    <div class="ph" data-big="../assets/seoul/05_parts.webp" data-cap="총 부착물"><img src="../assets/seoul/05_parts_s.webp" alt="총 부착물" loading="lazy"><span class="lab">부착물</span></div>
+    <div class="ph" data-big="../assets/seoul/15_loot.webp" data-cap="뒤지기"><img src="../assets/seoul/15_loot_s.webp" alt="뒤지기" loading="lazy"><span class="lab">뒤지기</span></div>
+    <div class="ph" data-big="../assets/seoul/16_throw.webp" data-cap="던지기"><img src="../assets/seoul/16_throw_s.webp" alt="던지기" loading="lazy"><span class="lab">던지기</span></div>
+    <div class="ph" data-big="../assets/seoul/17_gas.webp" data-cap="차오르는 가스"><img src="../assets/seoul/17_gas_s.webp" alt="가스" loading="lazy"><span class="lab">가스</span></div>
+    <div class="ph" data-big="../assets/seoul/09_roof.webp" data-cap="옥상"><img src="../assets/seoul/09_roof_s.webp" alt="옥상" loading="lazy"><span class="lab">옥상</span></div>
+    <div class="ph" data-big="../assets/seoul/07_hospital.webp" data-cap="종합병원"><img src="../assets/seoul/07_hospital_s.webp" alt="종합병원" loading="lazy"><span class="lab">종합병원</span></div>
+    <div class="ph" data-big="../assets/seoul/08_mall.webp" data-cap="상가 건물"><img src="../assets/seoul/08_mall_s.webp" alt="상가 건물" loading="lazy"><span class="lab">상가 건물</span></div>
+    <div class="ph" data-big="../assets/seoul/12_school.webp" data-cap="고등학교"><img src="../assets/seoul/12_school_s.webp" alt="고등학교" loading="lazy"><span class="lab">고등학교</span></div>
+    <div class="ph" data-big="../assets/seoul/10_bridge.webp" data-cap="한강 다리"><img src="../assets/seoul/10_bridge_s.webp" alt="한강 다리" loading="lazy"><span class="lab">한강 다리</span></div>
+    <div class="ph" data-big="../assets/seoul/11_tunnel.webp" data-cap="지하철 터널"><img src="../assets/seoul/11_tunnel_s.webp" alt="지하철 터널" loading="lazy"><span class="lab">지하철 터널</span></div>
+    <div class="ph" data-big="../assets/seoul/13_site.webp" data-cap="재개발 공사장"><img src="../assets/seoul/13_site_s.webp" alt="재개발 공사장" loading="lazy"><span class="lab">공사장</span></div>
+    <div class="ph" data-big="../assets/seoul/14_base.webp" data-cap="군부대"><img src="../assets/seoul/14_base_s.webp" alt="군부대" loading="lazy"><span class="lab">군부대</span></div>
+  </div>
+  <p class="note">영상은 <a href="../videos.html" style="color:inherit">영상 페이지</a>에 모아 두었어요.</p>
+</section>
+
+<section class="sec" id="updates">
+  <div class="sec-h"><div class="kick">소식</div><h2>고친 것 · 더한 것</h2><p>판(버전)마다 바뀐 것을 적어요. 가장 새것이 위에 있어요.</p></div>
+  <div id="news"></div>
+</section>
+
+</main>
+
+<footer class="foot"><span><b>H2O 게임</b> · 혼자 만드는 게임들</span><span>화면은 모두 개발 중 모습이라 바뀔 수 있어요</span><span class="r">글꼴 Pretendard · SIL OFL 1.1</span></footer>
+
+<script>
+addEventListener('DOMContentLoaded',function(){
+  if(window.renderNews&&window.SEOUL_NEWS)renderNews(document.getElementById('news'),SEOUL_NEWS,10);
+});
+</script>
+</body>
+</html>

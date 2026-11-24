@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>서울탈출 체험판</title>
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="preload" href="font/Galmuri11-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<style>html, body { margin: 0; background: #000; }</style>
+</head>
+<body>
+
+<div id="boot" class="hidden" aria-hidden="true" data-notr><div class="bBox"><div class="bTop"><span class="bMsg"></span><span class="bPct">0%</span></div><div class="bBar"><i></i></div></div></div>
+<style>@font-face { font-family: "Galmuri11"; font-weight: bold; src: url("font/Galmuri11-Bold.woff2") format("woff2"); font-display: swap; }
+#boot { position: fixed; left: 0; right: 0; bottom: 13vh; z-index: 60; display: flex; justify-content: center; pointer-events: none; opacity: 1; transition: opacity .45s;
+  font-family: "Galmuri11", "Malgun Gothic", monospace; font-weight: bold; -webkit-font-smoothing: none; }
+#boot.hidden { display: none; }
+#boot.out { opacity: 0; }
+#boot .bBox { width: min(660px, 86vw); }
+#boot .bTop { display: flex; align-items: flex-end; gap: 14px; height: 1.7em; margin-bottom: 10px; font-size: clamp(15px, 2.6vmin, 26px); }
+#boot .bMsg { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #e8dab2; letter-spacing: 1px; text-shadow: 2px 2px 0 #000; transition: opacity .25s; }
+#boot .bMsg.swap { opacity: 0; }
+#boot .bPct { flex: none; width: 4.2em; text-align: right; color: #f0b25a; font-size: 1.3em; line-height: 1; letter-spacing: 1px; text-shadow: 2px 2px 0 #000, 0 0 8px #c8641c66; font-variant-numeric: tabular-nums; }
+#boot .bBar { height: clamp(22px, 3.4vmin, 34px); padding: 4px; background: #0d0907; border: 2px solid #000; box-shadow: 0 0 0 2px #5a3a22, 0 0 0 4px #000, inset 0 2px 0 #0008; }
+#boot .bBar i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(90deg, #d58a36 0 12px, #5a2f12 12px 15px); box-shadow: inset 0 3px 0 #f6c17299, inset 0 -3px 0 #6a361299; transition: width .15s linear; }
+</style>
+<script>
+(function() {
+  try {
+    var el = document.getElementById("boot");
+    if (!el) return;
+    var en = false;
+    var M = en ? [ "Digging through a trash pile...", "Sneaking around the infected...", "Prying open a store's back door...", "Packing bottled water...", "Tuning the radio...", "Rebuilding the barricade...", "Wrapping a bandage...", "Scouting the street from a rooftop...", "Loading magazines...", "Creeping up the stairs...", "Marking a safe route on the map...", "Knocking on the shelter door...", "Checking canned food dates...", "Swapping flashlight batteries...", "Opening an abandoned car's trunk..." ] : [ "쓰레기 더미를 뒤지는 중…", "감염자를 피해 골목으로 돌아가는 중…", "편의점 뒷문을 따는 중…", "생수병을 가방에 챙기는 중…", "무전기 주파수를 맞추는 중…", "바리케이드를 다시 세우는 중…", "붕대를 감는 중…", "옥상에서 거리를 살피는 중…", "탄창을 채우는 중…", "발소리를 죽이고 계단을 오르는 중…", "지도에 안전한 길을 표시하는 중…", "셸터 문을 두드리는 중…", "통조림 유통기한을 확인하는 중…", "손전등 배터리를 갈아 끼우는 중…", "버려진 차 트렁크를 여는 중…" ];
+    var msg = el.querySelector(".bMsg"), pct = el.querySelector(".bPct"), fill = el.querySelector(".bBar i");
+    var base = location.href.replace(/[?#].*$/, "").replace(/[^\/]*$/, ""), sz = null, total = 0, t0 = performance.now(), shown = 0, end = false, on = false, mi = -1, tick = 0, timer = 0;
+    try {
+      performance.setResourceTimingBufferSize(1e3);
+    } catch (e) {}
+    function got() {
+      if (!sz) return Math.min(.9, 1 - Math.exp(-(performance.now() - t0) / 12e3));
+      var L = performance.getEntriesByType("resource"), seen = {}, n = 0;
+      for (var i = 0; i < L.length; i++) {
+        var u = L[i].name;
+        if (u.indexOf(base) !== 0) continue;
+        u = u.slice(base.length).replace(/[?#].*$/, "");
+        if (sz[u] && !seen[u] && (u !== "js/lang-en.js" || en)) {
+          seen[u] = 1;
+          n += sz[u];
+        }
+      }
+      return n / total;
+    }
+    function say() {
+      var j;
+      do {
+        j = Math.floor(Math.random() * M.length);
+      } while (j === mi && M.length > 1);
+      mi = j;
+      msg.classList.add("swap");
+      setTimeout(function() {
+        msg.textContent = M[mi];
+        msg.classList.remove("swap");
+      }, 250);
+    }
+    function step() {
+      var target = end ? 100 : Math.min(99, Math.floor(got() * 100));
+      if (target > shown) shown = Math.min(target, shown + Math.max(1, Math.ceil((target - shown) * (end ? .35 : .2))));
+      fill.style.width = shown + "%";
+      pct.textContent = shown + "%";
+      if (++tick % 26 === 0) say();
+      if (end && shown >= 100) {
+        clearInterval(timer);
+        setTimeout(function() {
+          el.classList.add("out");
+          setTimeout(function() {
+            el.remove();
+          }, 500);
+        }, 300);
+      }
+    }
+    setTimeout(function() {
+      if (end) {
+        el.remove();
+        return;
+      }
+      on = true;
+      el.classList.remove("hidden");
+      mi = Math.floor(Math.random() * M.length);
+      msg.textContent = M[mi];
+      step();
+      timer = setInterval(step, 100);
+    }, 400);
+    document.addEventListener("DOMContentLoaded", function() {
+      end = true;
+      if (!on) el.remove();
+    });
+  } catch (err) {}
+})();
+</script>
+
+<link rel="stylesheet" href="css/ui.css?v=56">
+<link rel="stylesheet" href="css/help2.css">
+<link rel="stylesheet" href="css/trial.css">
+<canvas id="screen"></canvas>
+
+<div id="hud" class="hidden">
+  <div id="hudBars">
+    <div class="barRow"><div class="bar"><i id="hpFill"></i><em id="hpTxt"></em></div></div>
+    <div class="barRow"><div class="bar st"><i id="stFill"></i></div></div>
+    <div id="hudHelpRow"><span id="hudParty" class="hidden" role="button" tabindex="0"></span><button id="hudHelp" title="도움말 · 규칙 (F1)">? 도움말</button></div>
+  </div>
+  <div id="hudIcons"></div>
+  <div id="hudFac" class="hidden"></div>
+  <div id="hudInj"></div>
+  <div id="hudTut" class="hidden"></div>
+  <div id="hudCourse" class="hidden"></div>
+  <div id="hudWeapon"><div id="wpName"></div><div id="wpAmmo"></div><div id="wpMode"></div></div>
+  <div id="hudMapBox" class="hidden"><div id="hudMapHead"></div><canvas id="hudMap" width="240" height="240"></canvas></div>
+  <div id="hudInfo"></div>
+  <div id="hudCenter"></div>
+  <div id="hudPrompt" class="hidden"></div>
+  <div id="hudLog"></div>
+  <div id="hudQuick"></div>
+  <div id="hudSpec" class="hidden"></div>
+</div>
+
+<div id="panel" class="hidden"></div>
+<div id="tooltip" class="hidden"></div>
+<div id="dragGhost" class="hidden"></div>
+<div id="deco" class="hidden"></div>
+
+<div id="gate" class="screen hidden"><div id="gateBody"></div><p id="ver2"></p></div>
+
+<div id="title" class="screen hidden"><p id="ver"></p></div>
+
+<div id="fade" class="hidden"></div>
+<div id="fpsBox" class="hidden" data-notr></div>
+
+<script src="js/trial-cfg.js"></script>
+<script src="js/lang.js"></script>
+<script src="js/data.js"></script>
+<script src="js/core.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/access.js"></script>
+<script src="js/guns.js"></script>
+<script src="js/places.js"></script>
+<script src="js/fish.js"></script>
+<script src="js/trade.js"></script>
+<script src="js/worth.js"></script>
+<script src="js/art.js"></script>
+<script src="js/art-props.js"></script>
+<script src="js/art-rot.js"></script>
+<script src="js/art-rot2.js"></script>
+<script src="js/art-water.js"></script>
+<script src="js/art-trash.js"></script>
+<script src="js/art-small.js"></script>
+<script src="js/art-icons.js"></script>
+<script src="js/emoji.js"></script>
+<script src="js/tex-place.js"></script>
+<script src="js/art-place.js"></script>
+<script src="js/pose.js"></script>
+<script src="js/art-turn.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/art-surf.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/snd-prop.js"></script>
+<script src="js/bgm.js"></script>
+<script src="js/melee.js"></script>
+<script src="js/items.js"></script>
+<script src="js/needs.js"></script>
+<script src="js/snd-place.js"></script>
+<script src="js/door-place.js"></script>
+<script src="js/skills.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/vault.js"></script>
+
+<script src="js/feats.js"></script>
+<script src="js/mercs.js"></script>
+<script src="js/map.js"></script>
+<script src="js/props-place.js"></script>
+<script src="js/normal.js"></script>
+<script src="js/dotshade.js"></script>
+<script src="js/light.js"></script>
+<script src="js/actors.js"></script>
+<script src="js/tac.js"></script>
+<script src="js/weather.js"></script>
+<script src="js/nvg.js"></script>
+<script src="js/render.js"></script>
+<script src="js/fire-anim.js"></script>
+<script src="js/deco-raid.js"></script>
+<script src="js/pick.js"></script>
+<script src="js/raid.js"></script><script src="js/evroll.js"></script><script src="js/events.js"></script><script src="js/bdevice.js"></script><script src="js/week.js"></script><script src="js/missions.js"></script><script src="js/mis-photo.js"></script><script src="js/mis-hold.js"></script><script src="js/mis-escort.js"></script><script src="js/mis-stealth.js"></script><script src="js/mis-power.js"></script>
+<script src="js/minimap.js"></script>
+<script src="js/traps.js"></script>
+<script src="js/home.js"></script>
+<script src="js/home-top.js"></script>
+<script src="js/home-ride.js"></script>
+<script src="js/hub.js"></script>
+<script src="js/deco-hub.js"></script>
+<script src="js/grass.js"></script>
+<script src="js/chem.js"></script>
+<script src="js/water-dot.js"></script>
+<script src="js/home-out.js"></script>
+<script src="js/clean.js"></script>
+<script src="js/home-use.js"></script>
+<script src="js/home-fish.js"></script>
+<script src="js/home-fan.js"></script>
+<script src="js/fishing.js"></script>
+<script src="js/home-surf.js"></script>
+<script src="js/net-off.js"></script>
+<script src="js/coop.js"></script>
+
+<script src="js/pad.js"></script>
+<script src="js/mouse.js"></script>
+<script src="js/recap.js"></script>
+<script src="js/photo.js"></script>
+
+<script src="js/ui.js"></script>
+<script src="js/settle.js"></script>
+<script src="js/hudlay.js"></script>
+<script src="js/settings.js"></script>
+
+<script src="js/device.js"></script>
+<script src="js/deco-ui.js"></script>
+<script src="js/mkmat.js"></script>
+<script src="js/needmark.js"></script>
+<script src="js/loadout.js"></script>
+
+<script src="js/main.js"></script>
+
+<script src="js/help2-pic.js"></script>
+<script src="js/help2.js"></script>
+<script src="js/firsttip.js"></script>
+<script src="js/trial.js"></script>
+
+</body>
+</html>

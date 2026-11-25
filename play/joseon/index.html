@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>조선 좀비 — 체험판</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+#trialTag { position: fixed; right: 16px; top: 46px; z-index: 7; font-size: 12px; letter-spacing: 2px; color: var(--paper2); opacity: .72; pointer-events: none; }
+#trialEdge { position: fixed; left: 50%; top: 14%; transform: translateX(-50%); z-index: 4; padding: 8px 18px; font-size: 16px; letter-spacing: 1px; color: var(--paper); background: rgba(13,12,11,.82); border: 1px solid var(--brass2); opacity: 0; transition: opacity .4s; pointer-events: none; }
+#trialEdge.on { opacity: 1; }
+#title .intro { margin: -14px auto 6px; max-width: 460px; font-size: 14px; line-height: 1.65; color: var(--paper2); }
+#title .nm { display: none; }
+.tlinks { display: flex; gap: 10px; justify-content: center; margin-top: 10px; }
+.tlinks button, .tlinks a { width: 200px; height: 40px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; font: inherit; font-size: 15px; color: var(--paper); background: #2a241a; border: 1px solid var(--brass2); text-decoration: none; cursor: pointer; }
+.tlinks button:hover, .tlinks a:hover { background: #3a3122; border-color: var(--brass); }
+#paused .tlinks button, #paused .tlinks a { width: 180px; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<div id="hud">
+  <div id="dot"></div>
+  <div id="story"><div id="chap"></div><div id="goal"></div></div>
+  <div id="notes"></div>
+  <div id="banner"></div>
+  <div id="prompt" style="display:none"></div>
+  <div id="vitals">
+    <div class="vrow"><label>체력</label><div id="hp" class="bar"><i></i></div><em id="hpt"></em></div>
+    <div class="vrow"><label>기력</label><div id="st" class="bar"><i></i></div><em id="stt"></em></div>
+    <div class="vrow"><label id="lv">1 단계</label><div id="xp" class="bar"><i></i></div><em id="xpt"></em></div>
+  </div>
+  <div id="held" style="display:none"></div>
+  <div id="hotbar"></div>
+  <div id="clock"></div>
+  <div id="dlg" style="display:none"><div class="who"></div><div class="txt"></div><div class="more">E · 클릭 — 다음</div></div>
+  <div id="inv" class="panel" style="display:none"></div>
+  <div id="shop" class="panel" style="display:none"></div>
+  <div id="dead" style="display:none"><h2>쓰러졌습니다</h2><p>잠시 뒤 마을에서 다시 일어납니다.</p></div>
+  <div id="chat"><div id="chatlog"></div><input id="chatin" maxlength="120" placeholder="할 말(Enter)" style="display:none"></div>
+</div>
+<div id="trialEdge"></div>
+<div id="trialTag">체험판</div>
+
+<div id="title">
+  <div class="box">
+    <h1>조선 좀비</h1>
+    <p class="sub">체험판</p>
+    <p class="intro">시작 마을과 그 둘레를 다니며 좀비를 잡고 오행 술법을 써 볼 수 있습니다.<br>체험판은 저장되지 않으며, 이야기는 첫머리에서 멈춰 있습니다.</p>
+    <label class="nm">이름<input id="nm" maxlength="12" autocomplete="off" spellcheck="false" value="나그네"></label>
+    <button id="go">시작하기</button>
+    <p id="state"></p>
+    <button id="tset" class="tset">설정</button>
+    <div class="tlinks"><a href="../../index.html">사이트로 돌아가기</a></div>
+    <div class="keys">
+      <div><b>W A S D</b> 걷기</div><div><b>Shift</b> 달리기</div><div><b>Space</b> 뛰기</div><div><b>C</b> 앉기</div>
+      <div><b>왼쪽 클릭</b> 베기 · 누르고 있다 놓으면 힘 베기</div><div><b>오른쪽 클릭</b> 막기(맞기 직전이면 튕겨냄)</div>
+      <div><b>E</b> 말 걸기 · 살피기</div><div><b>Tab</b> 봇짐</div><div><b>1 ~ 5</b> 무기 바꾸기</div><div><b>K</b> 술법 창</div><div><b>Q R F G</b> 술법 쓰기</div><div><b>M</b> 지도</div><div><b>Esc</b> 멈춤 창</div>
+    </div>
+  </div>
+</div>
+<div id="paused" style="display:none">
+  <div class="pbox">
+    <div class="ptitle">멈춤</div>
+    <button id="resume">이어 하기</button>
+    <div class="tlinks"><button id="tAgain">다시 하기</button><a href="../../index.html">사이트로 돌아가기</a></div>
+    <div id="setbox"></div>
+  </div>
+</div>
+
+<script type="module" src="game/main.js"></script>
+</body>
+</html>

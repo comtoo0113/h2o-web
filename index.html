@@ -214,7 +214,7 @@ let html='', base=0;
 for(let j=-5;j<=5;j++)html+=`<div class="ringc" data-y="${j*DYH}" style="width:${2*R}px;height:${2*R}px;left:${-R}px;top:${-R}px"></div>`;
 for(let j=0;j<16;j++)html+=`<div class="rib" data-a="${j*22.5+11.25}"></div>`;
 for(let s=0;s<POOL;s++){const p=P[s%N];html+=`<div class="panel" data-i="${s}" style="--pc:var(--${p.c})"><span class="num">${String(s%N+1).padStart(2,'0')}</span><small>${p.k}</small><h4>${p.t}</h4>`+
-  (p.p?`<p>${p.p}</p>`:'')+(p.shot?`<div class="shot"><img src="${p.shot}" alt="" draggable="false"></div>`:'')+(p.tags?`<div class="tags">${p.tags.map(t=>`<em>${t}</em>`).join('')}</div>`:'')+(p.play?(p.soon?`<span class="play soon">게임 해보기 · 준비 중</span>`:`<a class="play" href="${p.play}">게임 해보기</a>`):'')+`<span class="more">자세히 보기 →</span></div>`}
+  (p.p?`<p>${p.p}</p>`:'')+(p.shot?`<div class="shot"><img src="${p.shot}" alt="" draggable="false"></div>`:'')+(p.tags?`<div class="tags">${p.tags.map(t=>`<em>${t}</em>`).join('')}</div>`:'')+(p.play?(p.soon?`<span class="play soon">게임 시식해보기 · 준비 중</span>`:`<a class="play" href="${p.play}">게임 시식해보기</a>`):'')+`<span class="more">자세히 보기 →</span></div>`}
 cyl.innerHTML=html;
 const panels=[...cyl.querySelectorAll('.panel')], rings=[...cyl.querySelectorAll('.ringc')], ribs=[...cyl.querySelectorAll('.rib')];
 document.getElementById('side').innerHTML=P.map((p,i)=>`<a data-i="${i}" style="--pc:var(--${p.c})"><i></i>${p.side}</a>`).join('');
@@ -251,7 +251,7 @@ function openDetail(n){
   dlg.querySelector('.dlg-lead').textContent=d.lead;
   dlg.querySelector('.dlg-txt ul').innerHTML=d.pts.map(s=>{const k=s.indexOf(' — ');return `<li>${k>0?`<b>${s.slice(0,k)}</b> — ${s.slice(k+3)}`:s}</li>`}).join('');
   const go=dlg.querySelector('.dlg-go:not(.dlg-play)');go.href=p.link;go.textContent=p.lt+' →';
-  const pl=dlg.querySelector('.dlg-play');pl.hidden=!p.play;if(p.play){pl.classList.toggle('soon',!!p.soon);if(p.soon){pl.removeAttribute('href');pl.setAttribute('aria-disabled','true');pl.textContent='게임 해보기 · 준비 중'}else{pl.href=p.play;pl.removeAttribute('aria-disabled');pl.textContent='게임 해보기'}}
+  const pl=dlg.querySelector('.dlg-play');pl.hidden=!p.play;if(p.play){pl.classList.toggle('soon',!!p.soon);if(p.soon){pl.removeAttribute('href');pl.setAttribute('aria-disabled','true');pl.textContent='게임 시식해보기 · 준비 중'}else{pl.href=p.play;pl.removeAttribute('aria-disabled');pl.textContent='게임 시식해보기'}}
   dlg.querySelector('.dlg-txt .tags').innerHTML=(p.tags||[]).map(t=>`<em>${t}</em>`).join('');
   dlg.classList.add('open');dlgOpen=true;document.body.style.overflow='hidden';dlgBox.scrollTop=0;
   {const mv=dlg.querySelector('.dlg-main video[autoplay]');if(mv)mv.play().catch(()=>{});}

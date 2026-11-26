@@ -142,6 +142,7 @@ kbd{display:inline-block;font:600 11.5px/1 "Pretendard Variable",Pretendard,sans
 .news li kbd{font-size:10.5px;padding:3px 5px}
 .btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13px;letter-spacing:.02em;color:#fff;text-decoration:none;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:9px 16px;cursor:pointer;transition:background .2s,border-color .2s}
 .btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+.try-row{margin-top:14px}.btn.try{font-size:14px;padding:11px 20px;background:color-mix(in srgb,var(--pc) 22%,transparent);border-color:color-mix(in srgb,var(--pc) 62%,transparent)}.btn.try:hover{background:color-mix(in srgb,var(--pc) 34%,transparent)}
 .more-row{margin-top:14px;display:flex;justify-content:center}
 
 /* 게임 고르기(소식 · 영상 페이지 위) */

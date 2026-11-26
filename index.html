@@ -145,7 +145,7 @@ canvas.fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
   .scene,.core,.side,.foot-mini,.ctl{display:none}
   .mbox{display:block}
   .mcard{position:relative;display:flex;flex-direction:column;border-radius:14px;padding:20px 20px 16px;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;
-    background:linear-gradient(165deg,rgba(26,16,48,.88),rgba(46,20,58,.84));border:1px solid rgba(255,255,255,.11);box-shadow:0 24px 50px rgba(4,2,12,.45);transition:border-color .3s,box-shadow .3s}
+    background:linear-gradient(165deg,rgba(26,16,48,.88),rgba(46,20,58,.84));border:1px solid rgba(255,255,255,.11);box-shadow:0 24px 50px rgba(4,2,12,.45);transition:border-color .3s} /* 폰: 가운데 카드 바뀔 때 큰 흐림 그림자를 0.3초 바꾸면 돌리는 동안 매 프레임 다시 그려 버벅임(33ms 넘는 프레임 2~4 → 1) — 그림자는 바로 바뀜 */
   .mcard:before{content:"";position:absolute;left:20px;top:-1px;width:44px;height:2px;background:var(--pc)}
   .mcard.on{border-color:rgba(255,255,255,.22);box-shadow:0 24px 60px rgba(4,2,12,.5),0 0 44px color-mix(in srgb,var(--pc) 20%,transparent)}
   .mcard small{font-size:11px;font-weight:600;letter-spacing:.12em;color:color-mix(in srgb,var(--pc) 72%,#fff);padding-right:34px}

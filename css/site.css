@@ -197,3 +197,15 @@ kbd{display:inline-block;font:600 11.5px/1 "Pretendard Variable",Pretendard,sans
 .toc-dock a.on i{width:24px;background:var(--pc)}
 @media (max-width:1399px){.toc-dock.panel{background:rgba(11,8,22,.55);border-color:var(--line);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}}
 @media (max-width:900px){.toc-dock{display:none}}
+.toc-bar{display:none}
+@media (max-width:900px){
+  .toc-bar{display:block;position:fixed;left:0;right:0;z-index:39;visibility:hidden;pointer-events:none;
+    background:rgba(14,8,28,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .toc-bar.show{visibility:visible;pointer-events:auto}
+  .toc-bar .tb-row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:8px 16px;overscroll-behavior-x:contain}
+  .toc-bar .tb-row::-webkit-scrollbar{display:none}
+  .toc-bar a{flex:none;font-size:12.5px;line-height:1.4;text-decoration:none;color:rgba(255,255,255,.62);padding:5px 11px;border-radius:5px;
+    border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);white-space:nowrap;transition:color .2s,border-color .2s,background-color .2s}
+  .toc-bar a.on{color:#fff;border-color:color-mix(in srgb,var(--pc) 70%,transparent);background:color-mix(in srgb,var(--pc) 14%,transparent)}
+  html{scroll-padding-top:var(--tbh,110px)}
+}

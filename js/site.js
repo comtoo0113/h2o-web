@@ -73,6 +73,53 @@ if(src){
   addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>check(true))}},{passive:true});
   addEventListener('resize',()=>check(false));
   check(false);
+
+  /* 좁은 화면(900 이하 · 오른쪽 목록 자리 없음) — 차례 단추가 위 메뉴 밑을 지나가면 메뉴 바로 밑에 긴 띠가 생기고
+     단추들이 위에서 하나씩 내려옴. 다시 올라가면 거꾸로 하나씩 올라가 사라짐. 띠는 옆으로 밀어 넘김 · 지금 읽는 절 표시 */
+  const narrow=matchMedia('(max-width:900px)');
+  const bar=document.createElement('nav');bar.className='toc-bar';bar.setAttribute('aria-label','차례');
+  const row=document.createElement('div');row.className='tb-row';bar.append(row);
+  links.forEach(a=>{const it=document.createElement('a');it.href=a.getAttribute('href');it.textContent=a.textContent;row.append(it)});
+  document.body.append(bar);
+  const bits=[...row.children];
+  let barOn=false,bgen=0,bcur=-1;
+  const place=()=>{const h=nav?nav.getBoundingClientRect().bottom:0;bar.style.top=Math.max(0,Math.round(h))+'px';
+    document.documentElement.style.setProperty('--tbh',Math.round(Math.max(0,h)+bar.offsetHeight+8)+'px')};
+  function barShow(want,anim){
+    if(want===barOn)return;barOn=want;const g=++bgen;
+    stop([bar,...bits]);
+    if(want){place();bar.classList.add('show');row.scrollLeft=0}
+    if(!anim||calm.matches){bar.classList.toggle('show',want);return}
+    if(want){
+      bar.animate([{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0 0)'}],{duration:260,easing:'cubic-bezier(.2,.75,.15,1)'});
+      bits.forEach((it,k)=>it.animate([{transform:'translateY(-150%)',opacity:0},{transform:'none',opacity:1}],
+        {duration:420,delay:90+k*55,easing:'cubic-bezier(.2,.75,.15,1)',fill:'backwards'}));
+    }else{
+      const n=bits.length,last=[];
+      bits.forEach((it,k)=>last.push(it.animate([{transform:'none',opacity:1},{transform:'translateY(-150%)',opacity:0}],
+        {duration:220,delay:(n-1-k)*30,easing:'ease-in',fill:'forwards'}).finished));
+      last.push(bar.animate([{clipPath:'inset(0 0 0 0)'},{clipPath:'inset(0 0 100% 0)'}],{duration:240,delay:(n-1)*30+120,easing:'ease-in',fill:'forwards'}).finished);
+      Promise.all(last).then(()=>{if(g===bgen){bar.classList.remove('show');stop([bar,...bits])}},()=>{});
+    }
+  }
+  let bt=false;
+  function bcheck(anim){
+    bt=false;
+    if(!narrow.matches){if(barOn)barShow(false,false);return}
+    const nb=nav?nav.getBoundingClientRect().bottom:0,top=src.getBoundingClientRect().bottom;
+    barShow(barOn?top<nb+24:top<nb,anim);
+    if(!barOn)return;
+    let k0=0;const line=innerHeight*.38;
+    secs.forEach((s,k)=>{if(s&&s.getBoundingClientRect().top<line)k0=k});
+    if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)k0=secs.length-1;
+    bits.forEach((it,k)=>it.classList.toggle('on',k===k0));
+    if(k0!==bcur){bcur=k0;const it=bits[k0];row.scrollTo({left:it.offsetLeft-(row.clientWidth-it.offsetWidth)/2,behavior:anim&&!calm.matches?'smooth':'auto'})}
+  }
+  addEventListener('scroll',()=>{if(!bt){bt=true;requestAnimationFrame(()=>bcheck(true))}},{passive:true});
+  addEventListener('resize',()=>{place();bcheck(false)});
+  /* 글꼴(Pretendard)이 늦게 오면 메뉴가 3줄→2줄로 줄어듦 — 메뉴 높이가 바뀔 때마다 띠 자리 · 건너뛸 여백 다시 잡기 */
+  if(nav&&window.ResizeObserver)new ResizeObserver(()=>place()).observe(nav);
+  place();bcheck(false);
 }
 
 /* 소식 — data=[{v,g:[[소제목,[줄…]]]}] 를 접는 칸으로. 처음 first 개, 「더 보기」마다 20 개씩 */

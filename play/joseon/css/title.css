@@ -33,3 +33,30 @@
 #title.en #state { font-size: 12.5px; }
 
 #title .box > #tset:last-child { margin-bottom: 66px; }
+
+
+#title .lgfp { height: 22px; margin: 2px 0 0; line-height: 22px; font-size: 13px; visibility: hidden; white-space: nowrap; overflow: hidden; }
+#title .lgfp.on { visibility: visible; }
+#title .lgfp a { color: var(--paper2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+#title .lgfp a:hover { color: var(--paper); }
+
+
+#lgm { position: fixed; inset: 0; z-index: 9; display: flex; align-items: center; justify-content: center; background: rgba(6, 5, 4, .62); }
+#lgm .lgmb { box-sizing: border-box; width: 560px; max-width: 94vw; padding: 22px 26px 20px; text-align: center; }
+#lgm .lgmh { height: 32px; margin: 0 0 8px; line-height: 32px; font-size: 21px; font-weight: normal; letter-spacing: 2px; color: var(--paper); white-space: nowrap; overflow: hidden; }
+#lgm .lgmt { height: 80px; margin: 0 0 10px; line-height: 20px; font-size: 14px; color: var(--paper2); overflow: hidden; word-break: keep-all; overflow-wrap: anywhere; }
+#lgm .lgmc { box-sizing: border-box; width: 400px; max-width: 100%; height: 58px; margin: 0 auto 6px; line-height: 56px; font-family: Consolas, 'Courier New', monospace; font-size: 27px; letter-spacing: 2px; color: #2a1b0c; background: rgba(255, 249, 232, .55); border: 1px solid rgba(72, 46, 20, .55); white-space: nowrap; overflow: hidden; user-select: all; }   
+#lgm .lgmr { display: grid; grid-template-columns: 110px 360px; gap: 12px; align-items: center; justify-content: center; height: 46px; margin: 0 0 8px; }
+#lgm .lgmr > span { text-align: right; font-size: 15px; color: var(--paper2); white-space: nowrap; overflow: hidden; }
+#lgm input { box-sizing: border-box; width: 360px; height: 46px; margin: 0; padding: 0 12px; font: inherit; font-size: 18px; color: var(--paper); background: #11100d; border: 1px solid var(--brass2); outline: none; }
+#lgm input:focus { border-color: var(--brass); }
+#lgm input:disabled { opacity: .5; }
+#lgm .lgmm { height: 40px; margin: 2px 0 6px; line-height: 20px; font-size: 13px; color: var(--paper2); overflow: hidden; }
+#lgm .lgmm.bad { color: #8e1b16; }   
+#lgm .lgmbs { display: flex; justify-content: center; gap: 10px; }
+#lgm .lgmbs button { width: 200px; height: 48px; margin: 0; padding: 0; font-size: 16px; letter-spacing: 1px; white-space: nowrap; overflow: hidden; }
+#lgm .lgmbs.n3 button { width: 156px; }
+#lgm .lgmbs button:disabled { opacity: .45; cursor: default; }
+#lgm.k-code .lgmbs button { width: 200px; }
+
+.set.lgset .opts button { white-space: nowrap; overflow: hidden; }

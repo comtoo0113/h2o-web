@@ -1,4 +1,4 @@
-/* H2O 게임 — 하위 페이지 공용 꾸밈 (홈 원기둥 색 · 판 모양을 그대로 씀) */
+/* H2O 게임즈 — 하위 페이지 공용 꾸밈 (홈 원기둥 색 · 판 모양을 그대로 씀) */
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--bg1:#1d1035;--bg2:#4a1f4f;--c1:#a78bfa;--c2:#93c5fd;--c3:#fb7185;--c4:#fdba74;--c5:#f0abfc;--ink:#f5f3ff;--pc:var(--c1);
   --dim:rgba(236,232,247,.7);--faint:rgba(236,232,247,.48);--line:rgba(255,255,255,.09)}

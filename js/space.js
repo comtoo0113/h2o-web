@@ -1,4 +1,4 @@
-/* H2O 게임 — 하위 페이지 바탕: 성운 결 · 별 · 가끔 얼음 유성 · 필름 결.
+/* H2O 게임즈 — 하위 페이지 바탕: 성운 결 · 별 · 가끔 얼음 유성 · 필름 결.
    홈 원기둥 그림에서 떼어 옴(원기둥 · 행성 · 혜성은 뺌). 움직임 줄이기 설정이면 한 장만 그림. */
 (()=>{
 const sky=document.createElement('div');sky.className='sky';sky.setAttribute('aria-hidden','true');

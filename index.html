@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>H2O 게임 — 혼자 만드는 게임들</title>
+<title>H2O 게임즈 — 혼자 만드는 게임들</title>
 <meta name="description" content="혼자 만드는 게임 셋 — 도트 생존 서울탈출, 1인칭 조선 판타지 조선좀비, 어르신 · 어린이를 위한 협동 게임 기울기 볼.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
@@ -150,7 +150,7 @@ canvas.fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
     <div class="scene"><div class="cyl" id="cyl"></div></div>
     <canvas class="fx" id="front"></canvas>
     <div class="grain"></div>
-    <nav class="nav"><a class="logo" href="index.html"><i></i>H2O 게임</a><a class="m on" href="index.html">홈</a><a class="m" href="games/seoul.html">서울탈출</a><a class="m" href="games/joseon.html">조선좀비</a><a class="m" href="games/tilt.html">기울기 볼</a><a class="m" href="videos.html">영상</a><a class="m" href="news.html">소식</a><a class="m" href="about.html">만든 사람</a></nav>
+    <nav class="nav"><a class="logo" href="index.html"><i></i>H2O 게임즈</a><a class="m on" href="index.html">홈</a><a class="m" href="games/seoul.html">서울탈출</a><a class="m" href="games/joseon.html">조선좀비</a><a class="m" href="games/tilt.html">기울기 볼</a><a class="m" href="videos.html">영상</a><a class="m" href="news.html">소식</a><a class="m" href="about.html">만든 사람</a></nav>
     <div class="count"><b id="cnum">01</b><span>/ 08</span><p id="cname">처음</p></div>
     <div class="side" id="side"></div>
     <div class="hint"><i></i>휠을 내려 돌리고, 카드를 눌러 보세요</div>
@@ -171,7 +171,7 @@ canvas.fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 <script>
 const NEWS=(window.SEOUL_NEWS||[]).slice(0,3).map(e=>e.v+' — '+e.g[0][1][0]);
 const P=[
- {c:'c1',k:'혼자 만드는 게임 공방',t:'H2O 게임',p:'혼자 만드는 게임 셋을 소개해요.<br>휠을 내려 원기둥을 돌려 보세요.',tags:['서울탈출','조선좀비','기울기 볼'],side:'처음',link:'about.html',lt:'만든 사람',
+ {c:'c1',k:'혼자 만드는 게임 공방',t:'H2O 게임즈',p:'혼자 만드는 게임 셋을 소개해요.<br>휠을 내려 원기둥을 돌려 보세요.',tags:['서울탈출','조선좀비','기울기 볼'],side:'처음',link:'about.html',lt:'만든 사람',
   d:{lead:'한 사람이 만드는 작은 게임 공방이에요. 도트로 그린 서울 생존 게임, 1인칭 조선 판타지, 어르신 · 어린이를 위한 협동 게임을 만들고 있어요.',
      pts:['서울탈출 — 봉쇄된 서울의 건물을 뒤지고 살아 나오는 도트 생존','조선좀비 — 낫 한 자루로 길을 나서는 1인칭 조선 판타지','기울기 볼 — 어르신 · 어린이가 함께 판을 기울이는 단순한 협동 게임'],
      media:[['v','assets/seoul/v_seoul.mp4','서울탈출','assets/seoul/10_bridge'],['i','assets/joseon/field','조선좀비'],['i','assets/tilt/tilt','기울기 볼'],['i','assets/seoul/09_roof','서울탈출 · 옥상']]}},

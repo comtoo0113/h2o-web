@@ -1,4 +1,4 @@
-/* H2O 게임 — 하위 페이지 공용: 위 메뉴 · 사진 크게 보기 · 소식 그리기 */
+/* H2O 게임즈 — 하위 페이지 공용: 위 메뉴 · 사진 크게 보기 · 소식 그리기 */
 (()=>{
 const nav=document.querySelector('.nav');
 const onS=()=>nav&&nav.classList.toggle('solid',scrollY>24);onS();addEventListener('scroll',onS,{passive:true});

@@ -1,0 +1,160 @@
+
+@font-face { font-family: 'ChusaLove'; src: url('../font/ChusaLove.woff2') format('woff2'); font-display: swap; }
+html, body { font-family: 'ChusaLove', 'Noto Serif KR', 'Batang', '바탕', serif; }
+
+
+[data-hjr] { position: relative; }
+[data-hj=pp], [data-hj=band], [data-hj=bg] { background-color: transparent !important; background-image: none !important; border-color: transparent !important; box-shadow: none !important; }
+:is([data-hj=pp],[data-hj=band]) { isolation: isolate; }
+:is([data-hj=pp],[data-hj=band])::before { content: ''; position: absolute; left: var(--hjx, -10px); top: var(--hjy, -10px); width: var(--hjw, calc(100% + 20px)); height: var(--hjh, calc(100% + 20px)); background: var(--hj) 0 0 / var(--hjs, 100% 100%) no-repeat border-box; z-index: -1; pointer-events: none; }
+[data-hj=bg] { background: var(--hj) 0 0 / var(--hjs, 100% 100%) no-repeat border-box !important; }
+
+[data-hj=pp][data-hjw]::before { background: rgb(206,174,116); left: -2px; top: -2px; width: calc(100% + 4px); height: calc(100% + 4px); }
+[data-hj=bg][data-hjw] { background: rgb(206,174,116) padding-box !important; }
+
+
+[data-hj=pp], [data-hj=bg] { --paper: #2a1b0c; --paper2: #5b3f20; --brass: #7a4a1c; --brass2: rgba(72,46,20,.45); --ink2: rgba(48,30,14,.07); color: #2a1b0c; text-shadow: 0 0 .7px rgba(48,30,14,.45); }
+[data-hj=pp] *, [data-hj=bg] * { text-shadow: inherit !important; }
+
+[data-hj=band] { --paper: #eadbb6; --paper2: #d9c8a0; color: #eadbb6; text-shadow: 0 1px 2px rgba(0,0,0,.6) !important; }
+[data-hj=band] * { text-shadow: inherit !important; }
+
+
+button[data-hj=bg] { color: #2a1b0c; }
+button[data-hj=bg]:hover:not(:disabled) { background: linear-gradient(rgba(255,250,232,.16), rgba(255,250,232,.16)) 5px 5px / calc(100% - 10px) calc(100% - 10px) no-repeat, var(--hj) 0 0 / var(--hjs, 100% 100%) no-repeat border-box !important; }
+button[data-hj=bg]:active:not(:disabled) { background: linear-gradient(rgba(48,30,14,.13), rgba(48,30,14,.13)) 5px 5px / calc(100% - 10px) calc(100% - 10px) no-repeat, var(--hj) 0 0 / var(--hjs, 100% 100%) no-repeat border-box !important; }
+button[data-hj=bg].on, button[data-hj=bg].sel, button[data-hj=bg].act { background: var(--hj2, var(--hj)) 0 0 / var(--hjs, 100% 100%) no-repeat border-box !important; color: rgb(132,30,18) !important; }
+
+[data-hj=pp].on::before, [data-hj=pp].fl::before, [data-hj=pp].go::before { background-image: var(--hj2, var(--hj)); }
+
+
+[data-hj=bar] { background: var(--hjb) 0 0 / 100% 100% no-repeat border-box !important; border-color: transparent !important; box-shadow: none !important; }
+[data-hj=bar] > i { background: var(--hjf) 0 0 / var(--bw, 100%) 100% no-repeat !important; box-shadow: none !important; }
+.bar[data-hj=bar].low > i { background-image: var(--hjf2, var(--hjf)) !important; }
+.bar[data-hj=bar].weak > i { background-image: var(--hjf3, var(--hjf2, var(--hjf))) !important; }
+
+
+#hud { text-shadow: 0 1px 0 #000, 0 0 3px #000; }
+#dot { background: #d9d0bb; }
+#chap { color: #5b3f20; }
+#vitals label { color: #5b3f20; }
+#vitals #lv { color: #7a4a1c; }
+#hpt { color: rgb(140,30,20) !important; }
+#xpt { color: #5b3f20 !important; }
+#clock { color: #5b3f20; }
+#hotbar .slot { overflow: visible; }
+#hotbar .slot span { display: block; overflow: hidden; }
+#hotbar .slot b { color: #5b3f20; }
+#hotbar .slot.on span { color: rgb(132,30,18); }
+
+#dlg .who:not(:empty) { width: fit-content; max-width: 60%; padding: 0 16px; margin-left: -6px; position: relative; top: -24px; color: #eadbb6; white-space: nowrap; }
+#dlg .more { color: #5b3f20; }
+#dlg.narr .txt { color: #5b3f20; }
+#hud:has(> #dlg:not([style*="none"])) > #vitals { visibility: hidden; }
+.note { background: transparent; border-color: transparent; }
+#held { color: #eadbb6; }
+
+
+.cell { border-color: rgba(48,30,14,.26); }
+.cell.use { border-color: rgba(48,30,14,.42); }
+.cell.use:hover { background: rgba(48,30,14,.09); }
+.cell p { color: #5b3f20; }
+.empty { color: #5b3f20; }
+.row, .set { border-bottom-color: rgba(48,30,14,.22); }
+.phead { border-bottom-color: rgba(48,30,14,.4); }
+#inv .cell u { color: rgb(132,30,18); }
+#inv .cell.on { border-color: rgb(132,30,18); }
+#title .keys { color: #5b3f20; }
+#title .keys b { color: #2a1b0c; }
+#title h1 { text-shadow: 0 0 .7px rgba(48,30,14,.45); }
+.set input[type=range] { accent-color: #7a4a1c; }
+
+
+#mgbar .ms { overflow: visible; }
+#mgbar .ms span { overflow: hidden; }
+html #mgbar .ms b { color: #5b3f20; }
+html #mgbar .ms i { background: rgba(48,30,14,.3); }
+html #mgbar .ms em { color: #2a1b0c; text-shadow: 0 0 4px rgba(232,212,170,.95), 0 0 2px rgba(232,212,170,.95) !important; }
+html #mgbar .ms.dim span { color: rgba(91,63,32,.6); }
+
+
+html #todo { background: transparent; border-left-color: rgba(132,30,18,.75); color: #2a1b0c; }
+html #todo .td-tag, html #todo .td-dir { color: rgb(132,30,18); }
+html #todo .td-how { color: #2a1b0c; }
+html #todo .td-how .td-tag { color: #1f4766; }
+html #todo .td-where { color: #5b3f20; }
+html #todo.flash { animation-name: hjTdFlash; }
+@keyframes hjTdFlash { 0%, 35% { background: rgba(132,30,18,.17); } 100% { background: transparent; } }
+html #r2job { background: transparent; border-left-color: #7a4a1c; color: #2a1b0c; }
+html #r2job .r2tg, html #r2job .r2dr { color: #7a4a1c; }
+
+
+html [data-hj] :is(.mg-node, .wk-card, .cblk) { background: rgba(48,30,14,.05); border-color: rgba(48,30,14,.28); }
+html [data-hj] .rprow { border-bottom-color: rgba(48,30,14,.22); }
+html [data-hj] .rprow.here { background: rgba(132,30,18,.08); }
+html #diffwin .drow { background: rgba(48,30,14,.05); border-color: rgba(48,30,14,.28); }
+html #diffwin .drow:hover { background: rgba(48,30,14,.1); }
+html #diffwin .drow.on { background: rgba(132,30,18,.08); border-color: rgba(132,30,18,.65); }
+html #diffwin .drow.on button[data-hj=bg] { background: var(--hj2, var(--hj)) 0 0 / var(--hjs, 100% 100%) no-repeat border-box !important; color: rgb(132,30,18); }
+
+
+html #smw .ttl { color: #2a1b0c; }
+html #smw .gl { color: #2a1b0c; }
+html #smw .pip { background: rgba(48,30,14,.2); }
+html #smw .pip.d { background: #7a4a1c; }
+html #smw .pip.on { background: rgb(132,30,18); }
+html #admbadge { color: #7a4a1c; }
+html #tsvbadge { color: #2f5a1e; }
+html #mgbar .ms kbd { color: #5b3f20; }
+html #hgt.low, html #hgt.weak { color: rgb(150,60,20); }
+html #mgbar .ms.wk kbd { color: #5b3f20; }
+html #mgbar .ms.wk.ch span { color: rgb(132,30,18); }
+[data-hj=pp].nw::before { background-image: var(--hj2, var(--hj)); }
+
+
+html .rpwin :is(.rpkey span, .rprow > i), html .rpbar > b, html #mgk .mg-tab b, html #wkp .wk-card .top span, html #bigmap .bm-legend b, html #wkp .wk-card .fol em {
+  text-shadow: 1px 0 0 rgba(42,27,12,.9), -1px 0 0 rgba(42,27,12,.9), 0 1px 0 rgba(42,27,12,.9), 0 -1px 0 rgba(42,27,12,.9) !important; }
+html .rpwin .rpgauge { background: rgba(48,30,14,.1); border-color: rgba(48,30,14,.4); }
+html .rpwin .rpgauge span { background: rgba(48,30,14,.5); }
+
+
+html #mgk .mg-info b.pts { color: rgb(132,30,18); }
+html #mgk .mg-node { background: rgba(48,30,14,.05); border-color: rgba(48,30,14,.3); }
+html #mgk .mg-node.sel { outline-color: rgb(132,30,18); }
+html #mgk .mg-node .x { color: #7a4a1c; }
+html #mgk .mg-link { background: rgba(48,30,14,.35); }
+html #mgk .mg-link.on { background: rgb(132,30,18); }
+html #mgk .mg-det { background: rgba(48,30,14,.05); border-color: rgba(48,30,14,.3); }
+html #mgk .mg-det .stat { color: #5b3f20; }
+html #mgk .mg-det .sl b { color: #7a4a1c; }
+
+
+html #wkp .wk-info .why { color: rgb(132,30,18); }
+html #wkp :is(.wk-sl, .wk-card, .wk-kick) { background: rgba(48,30,14,.05); border-color: rgba(48,30,14,.3); }
+html #wkp .wk-card.sel { outline-color: rgb(132,30,18); }
+html #wkp :is(.wk-sl, .wk-kick) kbd { color: #7a4a1c; border-color: rgba(122,74,28,.7); }
+html #wkp .wk-card .stat, html #wkp .wk-kick em { color: #5b3f20; }
+html #wkp .wk-card .bot .wait b { color: #7a4a1c; }
+html #wkp .wk-card .prog .pb { background: rgba(48,30,14,.1); border-color: rgba(48,30,14,.35); }
+html #wkp .wk-card .prog .pb i { background: linear-gradient(#a0692c, #7a4a1c); }
+html :is(#wdp, #wlt) b { color: #2a1b0c; }
+html :is(#wdp, #wlt) em { color: #7a4a1c; }
+html #wdp i { background: rgb(132,30,18); }
+html #ltbox { color: #2a1b0c; }
+html #ltbox b { color: #7a4a1c; }
+html #ltbox.low span { color: rgb(132,30,18); }
+html #ltbox i { background: #a0692c; }
+html #ltbox.wet i { background: #4a6a8a; }
+html #thjail > div[data-hj]:nth-child(8) { color: rgb(132,30,18) !important; }
+html #theye .eb { background: rgba(48,30,14,.12); border-color: rgba(48,30,14,.4); }
+
+
+html #smw .it b { color: #2a1b0c; }
+html #bigmap .phead .bm-tip, html #bigmap .bm-pos { color: #5b3f20; }
+html .cblk .must { background: rgba(48,30,14,.07); color: #2a1b0c; border-left-color: #7a4a1c; }
+html .cblk a { color: #6b3a14; }
+
+html #wdp.tele b { color: rgb(132,30,18); }
+html #wkp .wk-tab:is(.full, .held) i { color: rgb(132,30,18); }
+html #rwask .tm { background: rgba(48,30,14,.18); }
+html #rwask .tm i { background: rgb(132,30,18); }

@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/hanji.css">
 <style>
 
 #trialTag { position: fixed; right: 16px; top: 46px; z-index: 7; font-size: 12px; letter-spacing: 2px; color: var(--paper2); opacity: .72; pointer-events: none; }
@@ -14,8 +15,7 @@
 #title .intro { margin: -14px auto 6px; max-width: 460px; font-size: 14px; line-height: 1.65; color: var(--paper2); }
 #title .nm { display: none; }
 .tlinks { display: flex; gap: 10px; justify-content: center; margin-top: 10px; }
-.tlinks button, .tlinks a { width: 200px; height: 40px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; font: inherit; font-size: 15px; color: var(--paper); background: #2a241a; border: 1px solid var(--brass2); text-decoration: none; cursor: pointer; }
-.tlinks button:hover, .tlinks a:hover { background: #3a3122; border-color: var(--brass); }
+.tlinks button, .tlinks a { width: 200px; height: 40px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; font: inherit; font-size: 15px; text-decoration: none; cursor: pointer; }
 #paused .tlinks button, #paused .tlinks a { width: 180px; }
 </style>
 </head>
@@ -54,19 +54,14 @@
     <button id="go">시작하기</button>
     <p id="state"></p>
     <button id="tset" class="tset">설정</button>
-    <div class="tlinks"><a href="../../index.html">사이트로 돌아가기</a></div>
-    <div class="keys">
-      <div><b>W A S D</b> 걷기</div><div><b>Shift</b> 달리기</div><div><b>Space</b> 뛰기</div><div><b>C</b> 앉기</div>
-      <div><b>왼쪽 클릭</b> 베기 · 누르고 있다 놓으면 힘 베기</div><div><b>오른쪽 클릭</b> 막기(맞기 직전이면 튕겨냄)</div>
-      <div><b>E</b> 말 걸기 · 살피기</div><div><b>Tab</b> 봇짐</div><div><b>1 ~ 5</b> 무기 바꾸기</div><div><b>K</b> 술법 창</div><div><b>Q R F G</b> 술법 쓰기</div><div><b>M</b> 지도</div><div><b>Esc</b> 멈춤 창</div>
-    </div>
+    <div class="tlinks"><button type="button" onclick="location.href='../../index.html'">사이트로 돌아가기</button></div>
   </div>
 </div>
 <div id="paused" style="display:none">
   <div class="pbox">
     <div class="ptitle">멈춤</div>
     <button id="resume">이어 하기</button>
-    <div class="tlinks"><button id="tAgain">다시 하기</button><a href="../../index.html">사이트로 돌아가기</a></div>
+    <div class="tlinks"><button id="tAgain">다시 하기</button><button type="button" onclick="location.href='../../index.html'">사이트로 돌아가기</button></div>
     <div id="setbox"></div>
   </div>
 </div>

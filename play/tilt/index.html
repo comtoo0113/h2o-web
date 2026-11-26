@@ -551,7 +551,8 @@ class BoardView {
     g.fillStyle = gr; g.fillRect(0, 0, 256, 256);
     const m = new THREE.Mesh(new THREE.PlaneGeometry(W * 1.35, H * 1.45), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthWrite: false }));
     m.rotation.x = -Math.PI / 2; m.position.set(26, -FLOOR_T - 30, 22);
-    this.scene.add(m);
+    /* 판과 같이 기움 — 세상에 고정해 두면 대각선으로 기울 때 판 귀퉁이가 이 판 아래로 내려가 검은 세모가 펠트 위로 올라옴 */
+    this.board.add(m);
   }
 
   /* 판 좌표 (x, y) → 3D 자리 */

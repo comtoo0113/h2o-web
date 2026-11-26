@@ -264,9 +264,13 @@ dlg.querySelector('.dlg-th').addEventListener('click',e=>{const t=e.target.close
 dlg.querySelector('.dlg-bg').onclick=closeDetail; dlg.querySelector('.dlg-x').onclick=closeDetail;
 
 /* ── 휠 · 끌기 · 누르기 · 키 ── */
-stage.addEventListener('wheel',e=>{ /* 끝없이 — 8장이 돌아가며 되풀이 */
-  e.preventDefault(); target+=e.deltaY/200;
-  clearTimeout(snapT); snapT=setTimeout(()=>{target=Math.round(target)},150);
+let wAcc=0, wLast=0;
+stage.addEventListener('wheel',e=>{ /* 끝없이 — 8장이 돌아가며 되풀이 · 휠 한 칸에 위아래 똑같이 한 장 */
+  e.preventDefault();
+  const d=e.deltaY*(e.deltaMode===1?33:e.deltaMode===2?innerHeight:1), now=performance.now();
+  if(now-wLast>220||Math.sign(d)!==Math.sign(wAcc))wAcc=0;
+  wLast=now; wAcc+=d;
+  if(Math.abs(wAcc)>=50){target=Math.round(target)+Math.sign(wAcc);wAcc=0}
 },{passive:false});
 let drag=null;
 stage.addEventListener('pointerdown',e=>{if(e.target.closest('button,a,.side,.nav,.foot-mini'))return;drag={x:e.clientX,y:e.clientY,t:target,moved:false,pn:e.target.closest('.panel')}});

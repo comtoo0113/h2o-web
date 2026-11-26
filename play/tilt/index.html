@@ -482,7 +482,9 @@ class BoardView {
     sun.castShadow = true;
     const sm = this.mobile ? 1024 : 2048;
     sun.shadow.mapSize.set(sm, sm);
-    Object.assign(sun.shadow.camera, { left: -560, right: 560, top: 400, bottom: -400, near: 300, far: 1800 });
+    /* 그림자 범위: 판(980×640)을 어느 쪽으로 돌려도 다 덮게 정사각 ±650 — 좁으면 귀퉁이 그림자가 잘렸다 붙었다 함 */
+    Object.assign(sun.shadow.camera, { left: -650, right: 650, top: 650, bottom: -650, near: 300, far: 1800 });
+    sun.shadow.camera.updateProjectionMatrix();
     sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.6; sun.shadow.radius = 3;
     S.add(sun, sun.target);
     this.sunBase = sun.position.clone();
@@ -537,7 +539,8 @@ class BoardView {
     geo.translate(0, FRAME_UP - depth - 3, 0);
     planarUV(geo, (x, z) => (W / 2 - Math.abs(x)) < (H / 2 - Math.abs(z)));
     const m = new THREE.Mesh(geo, this.frameMat);
-    m.castShadow = true; m.receiveShadow = true;
+    /* 테두리는 그림자를 안 드리움 — 해가 기울기 따라 움직일 때 벽 그림자 띠가 생겼다 없어졌다 해서 */
+    m.castShadow = false; m.receiveShadow = true;
     this.board.add(m);
   }
 

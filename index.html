@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>H2O 게임즈 — 혼자 만드는 게임들</title>
 <meta name="description" content="혼자 만드는 게임 셋 — 도트 생존 서울탈출, 1인칭 조선 판타지 조선좀비, 어르신 · 어린이를 위한 협동 게임 기울기 볼.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -137,6 +137,59 @@ canvas.fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .foot-mini{position:absolute;right:28px;bottom:26px;z-index:5;font-size:11px;letter-spacing:.03em;color:rgba(255,255,255,.4);text-align:right;line-height:1.6}
 @media (max-width:860px){.foot-mini{display:none}.count{left:18px;bottom:18px}.hint{bottom:20px}.side{display:none}}
 @media (max-width:640px){.nav{flex-wrap:wrap;row-gap:8px;gap:14px;overflow:visible;font-size:13px}.nav .logo{flex-basis:100%;margin-right:0}}
+
+/* ════ 폰 홈 — 작은 원기둥 (760 이하만 · PC 는 위 그대로) ════ */
+.mbox{display:none}
+@media (max-width:374px){.nav{column-gap:4px;justify-content:space-between}}
+@media (max-width:760px){
+  .scene,.core,.side,.foot-mini,.ctl{display:none}
+  .mbox{display:block}
+  .mcard{position:relative;display:flex;flex-direction:column;border-radius:14px;padding:20px 20px 16px;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;
+    background:linear-gradient(165deg,rgba(26,16,48,.88),rgba(46,20,58,.84));border:1px solid rgba(255,255,255,.11);box-shadow:0 24px 50px rgba(4,2,12,.45);transition:border-color .3s,box-shadow .3s}
+  .mcard:before{content:"";position:absolute;left:20px;top:-1px;width:44px;height:2px;background:var(--pc)}
+  .mcard.on{border-color:rgba(255,255,255,.22);box-shadow:0 24px 60px rgba(4,2,12,.5),0 0 44px color-mix(in srgb,var(--pc) 20%,transparent)}
+  .mcard small{font-size:11px;font-weight:600;letter-spacing:.12em;color:color-mix(in srgb,var(--pc) 72%,#fff);padding-right:34px}
+  .mcard h4{font-size:27px;font-weight:700;letter-spacing:-.025em;margin-top:8px;line-height:1.2;color:#fff;word-break:keep-all}
+  .mcard p{font-size:13.5px;line-height:1.65;color:rgba(236,232,247,.74);margin-top:8px;word-break:keep-all}
+  .mcard .shot{margin-top:12px;aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.09);background:rgba(8,5,18,.5)}
+  .mcard .shot img{width:100%;height:100%;object-fit:cover;display:block}
+  .mcard .num{position:absolute;right:18px;top:17px;font-size:11px;letter-spacing:.08em;opacity:.42;font-variant-numeric:tabular-nums}
+  .mcard .mfoot{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:16px}
+  .mcard .more{margin-left:auto;font-size:11.5px;letter-spacing:.06em;color:rgba(255,255,255,.62);white-space:nowrap}
+  .mcard .play{font-size:12.5px;letter-spacing:.02em;color:#fff;text-decoration:none;padding:9px 14px;border-radius:8px;white-space:nowrap;
+    border:1px solid color-mix(in srgb,var(--pc) 62%,transparent);background:color-mix(in srgb,var(--pc) 20%,transparent)}
+  .count{left:18px;bottom:calc(16px + env(safe-area-inset-bottom))}
+  .count b{font-size:36px}
+  .hint{left:auto;right:18px;transform:none;bottom:calc(24px + env(safe-area-inset-bottom))}
+  /* 상세 창 — 아래에서 올라오는 판 · 끌어내리면 닫힘 */
+  .dlg{place-items:end stretch;padding:0}
+  .dlg-box{width:100%;max-height:90vh;max-height:90dvh;grid-template-columns:1fr;gap:16px;padding:28px 16px calc(20px + env(safe-area-inset-bottom));border-radius:18px 18px 0 0;border-bottom:0;
+    transform:translateY(70px);transition:transform .45s cubic-bezier(.2,.75,.2,1);overscroll-behavior:contain}
+  .dlg-box:before{left:50%;top:10px;width:40px;height:4px;margin-left:-20px;border-radius:2px}
+  .dlg-x{right:10px;top:12px;background:rgba(10,6,22,.62)}
+  .dlg-th{display:flex;overflow-x:auto;gap:8px;scrollbar-width:none;scroll-snap-type:x proximity}
+  .dlg-th::-webkit-scrollbar{display:none}
+  .dlg-th .ph{flex:0 0 40%;scroll-snap-align:start}
+  .dlg-txt{padding-top:0}
+  .dlg-txt h3{font-size:26px;padding-right:0;word-break:keep-all}
+  .dlg-lead{font-size:14.5px;line-height:1.7;margin-top:10px;word-break:keep-all}
+  .dlg-txt ul{margin-top:14px}
+  .dlg-txt li{font-size:13.5px;padding:10px 0 10px 18px;word-break:keep-all}
+  .dlg-txt li:before{top:17px}
+  .dlg-acts{flex-direction:column;gap:8px;margin-top:18px}
+  .dlg-acts .dlg-go{align-self:stretch;justify-content:center;padding:13px 18px;font-size:14px}
+  .dlg-note{padding-top:16px}
+}
+@media (max-width:760px) and (hover:none){.hint i{width:21px;height:13px}.hint i:after{left:4px;top:50%;width:5px;height:1.5px;margin:-.75px 0 0;animation:swipe 1.6s ease-in-out infinite}}
+@keyframes swipe{0%{transform:translateX(0);opacity:1}100%{transform:translateX(8px);opacity:0}}
+
+@media (max-width:760px){
+  .mscene{position:absolute;inset:0;perspective:1000px;perspective-origin:50% 44%;z-index:2}
+  .mring{position:absolute;left:50%;top:49%;width:0;height:0;transform-style:preserve-3d}
+  .mring .mcard{position:absolute;width:74vw;max-width:330px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+  .mring .mcard:not(.on) .play{pointer-events:none}
+  .mring .rim{position:absolute;border-radius:50%;border:1px solid rgba(206,214,255,.1);pointer-events:none}
+}
 </style>
 </head>
 <body>
@@ -148,6 +201,7 @@ canvas.fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
     <div class="core"></div>
     <canvas class="fx" id="back"></canvas>
     <div class="scene"><div class="cyl" id="cyl"></div></div>
+    <div class="mbox mscene" id="mscene"><div class="mring" id="mring"></div></div>
     <canvas class="fx" id="front"></canvas>
     <div class="grain"></div>
     <nav class="nav"><a class="logo" href="index.html"><i></i>H2O 게임즈</a><a class="m on" href="index.html">홈</a><a class="m" href="games/seoul.html">서울탈출</a><a class="m" href="games/joseon.html">조선좀비</a><a class="m" href="games/tilt.html">기울기 볼</a><a class="m" href="videos.html">영상</a><a class="m" href="news.html">소식</a><a class="m" href="about.html">만든 사람</a></nav>
@@ -205,6 +259,10 @@ const P=[
      media:[['i','assets/seoul/16_throw','서울탈출'],['i','assets/joseon/night_street','조선좀비'],['i','assets/seoul/12_school','서울탈출 · 고등학교'],['i','assets/joseon/forest','조선좀비 · 숲']]}}
 ];
 const N=P.length, STEP=360/N, R=470, DYH=124, PSP=1250, RAD=Math.PI/180;
+/* 폰: 760 이하면 원기둥 대신 폰 모양. FS · PO · CY = 우주 그림(먼지 띠 · 혜성) 크기 · 시점 · 가운데, FRONT = 먼지가 카드 앞으로도 지나감 */
+const MOB=matchMedia('(max-width:760px)').matches;
+let FS=1,PO=.46,CY=.53,FRONT=true,WHEEL=true,MSPARK=false,MDRIFT=null,mobFrame=()=>{};
+matchMedia('(max-width:760px)').addEventListener('change',()=>location.reload());
 let dy=DYH, cur=0, target=0, snapT=0, TEST=false;
 const stage=document.getElementById('stage'), cyl=document.getElementById('cyl');
 
@@ -273,6 +331,7 @@ TOUCH.addEventListener('change',()=>{syncPlay();const p=P[dlgCard];if(dlgOpen&&p
 /* ── 휠 · 끌기 · 누르기 · 키 ── */
 let wAcc=0, wLast=0;
 stage.addEventListener('wheel',e=>{ /* 끝없이 — 8장이 돌아가며 되풀이 · 휠 한 칸에 위아래 똑같이 한 장 */
+  if(!WHEEL)return;
   e.preventDefault();
   const d=e.deltaY*(e.deltaMode===1?33:e.deltaMode===2?innerHeight:1), now=performance.now();
   if(now-wLast>220||Math.sign(d)!==Math.sign(wAcc))wAcc=0;
@@ -280,7 +339,7 @@ stage.addEventListener('wheel',e=>{ /* 끝없이 — 8장이 돌아가며 되풀
   if(Math.abs(wAcc)>=50){target=Math.round(target)+Math.sign(wAcc);wAcc=0}
 },{passive:false});
 let drag=null;
-stage.addEventListener('pointerdown',e=>{if(e.target.closest('button,a,.side,.nav,.foot-mini'))return;drag={x:e.clientX,y:e.clientY,t:target,moved:false,pn:e.target.closest('.panel')}});
+stage.addEventListener('pointerdown',e=>{if(MOB)return;if(e.target.closest('button,a,.side,.nav,.foot-mini'))return;drag={x:e.clientX,y:e.clientY,t:target,moved:false,pn:e.target.closest('.panel')}});
 addEventListener('pointermove',e=>{if(!drag)return;if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>5)drag.moved=true;if(drag.moved)target=drag.t-(e.clientY-drag.y)/160});
 addEventListener('pointerup',()=>{if(!drag)return;const d=drag;drag=null;
   if(!d.moved&&d.pn&&d.pn._i!=null){target=d.pn._i;openDetail(+d.pn.dataset.i%N)}else target=Math.round(target)});
@@ -455,7 +514,7 @@ function drawIce(g,m,t){
   g.globalAlpha=1;
 }
 
-function proj(x,y,z){const k=PSP/(PSP-(z-R));return [W*.5+x*k,H*.46+(H*.07+y)*k,k]}
+function proj(x,y,z){const k=PSP/(PSP-(z-R));return [W*.5+x*k*FS,H*PO+(H*(CY-PO)+y*FS)*k,k*FS]}
 function tilt(x,y,z,tx,tz){const cX=Math.cos(tx*RAD),sX=Math.sin(tx*RAD),y1=y*cX-z*sX,z1=y*sX+z*cX,cZ=Math.cos(tz*RAD),sZ=Math.sin(tz*RAD);return [x*cZ-y1*sZ,x*sZ+y1*cZ,z1]}
 
 function drawFx(t,dt){
@@ -463,7 +522,7 @@ function drawFx(t,dt){
   for(const g of [S,B,F]){g.globalAlpha=1;g.globalCompositeOperation='source-over';g.clearRect(0,0,W,H)}
   /* 별 */
   S.globalCompositeOperation='lighter';
-  const drift=cur*dy*.22+t*3;
+  const drift=(MDRIFT?MDRIFT():cur*dy*.22)+t*3;
   for(let ti=0;ti<4;ti++){S.fillStyle=rgba(TW[ti],1);for(const s of stars[ti]){let y=(s.y*H-drift*s.d)%H;if(y<0)y+=H;S.globalAlpha=s.tw?s.a*(.7+.3*Math.sin(t*s.tw+s.ph)):s.a;S.fillRect(s.x*W,y,s.s,s.s)}}
   for(const b of bright){let y=(b.y*H-drift*b.d)%H;if(y<0)y+=H;const a=b.a*(.8+.2*Math.sin(t*b.f+b.ph));sp(S,spr(b.c),b.x*W,y,b.s,a);if(b.spk)sp(S,spike(b.c),b.x*W,y,b.s*2.2,a*.45)}
   /* 별똥별 */
@@ -478,20 +537,20 @@ function drawFx(t,dt){
   B.globalCompositeOperation=F.globalCompositeOperation='lighter';
   const follow=cur*STEP*RAD*.4;
   for(let ti=0;ti<4;ti++){B.fillStyle=F.fillStyle=rgba(BT[ti],1);
-    for(const b of belt[ti]){const a=b.a0+t*b.sp+follow,[x,y,z]=tilt(b.r*Math.cos(a),b.h,b.r*Math.sin(a),-14,7),[sx,sy,k]=proj(x,y,z),fr=z>R*.45,g=fr?F:B,s=b.s*k;
+    for(const b of belt[ti]){const a=b.a0+t*b.sp+follow,[x,y,z]=tilt(b.r*Math.cos(a),b.h,b.r*Math.sin(a),-14,7),[sx,sy,k]=proj(x,y,z),fr=FRONT&&z>R*.45,g=fr?F:B,s=b.s*k;
       g.globalAlpha=b.al*(fr?1:.55);g.fillRect(sx-s/2,sy-s/2,s,s)}}
-  for(const m of motes){const a=m.a0+t*m.sp+follow,[x,y,z]=tilt(m.r*Math.cos(a),m.h,m.r*Math.sin(a),-14,7),[sx,sy,k]=proj(x,y,z),fr=z>R*.45;
+  for(const m of motes){const a=m.a0+t*m.sp+follow,[x,y,z]=tilt(m.r*Math.cos(a),m.h,m.r*Math.sin(a),-14,7),[sx,sy,k]=proj(x,y,z),fr=FRONT&&z>R*.45;
     sp(fr?F:B,spr(m.c),sx,sy,m.s*k,m.al*(fr?1:.55)*(.75+.25*Math.sin(t*1.3+m.tw)))}
   /* 혜성: 매끈한 빛 꼬리 + 조금 바깥으로 휜 먼지 꼬리 + 머리 */
   for(const c of comets){const ah=c.a0+t*c.sp+follow,sg=Math.sign(c.sp);
     for(const [wd,al,cl,out] of [[4.6,.2,[255,226,206],1.1],[2.4,.5,c.c,0]]){let prev=null;
       for(let i=0;i<=44;i++){const u=i/44,a=ah-sg*i*.02,rr=c.r+out*i,p=tilt(rr*Math.cos(a),0,rr*Math.sin(a),c.tx,c.tz),s=proj(...p);
-        if(prev){const g=p[2]>R*.45?F:B;g.globalAlpha=al*Math.pow(1-u,1.6);g.strokeStyle=rgba(mixc(cl,[255,255,255],(1-u)*.6),1);g.lineWidth=(wd*(1-u)+.3)*s[2];g.beginPath();g.moveTo(prev[0],prev[1]);g.lineTo(s[0],s[1]);g.stroke()}
+        if(prev){const g=FRONT&&p[2]>R*.45?F:B;g.globalAlpha=al*Math.pow(1-u,1.6);g.strokeStyle=rgba(mixc(cl,[255,255,255],(1-u)*.6),1);g.lineWidth=(wd*(1-u)+.3)*s[2];g.beginPath();g.moveTo(prev[0],prev[1]);g.lineTo(s[0],s[1]);g.stroke()}
         prev=s}}
-    const p=tilt(c.r*Math.cos(ah),0,c.r*Math.sin(ah),c.tx,c.tz),s=proj(...p),g=p[2]>R*.45?F:B;
+    const p=tilt(c.r*Math.cos(ah),0,c.r*Math.sin(ah),c.tx,c.tz),s=proj(...p),g=FRONT&&p[2]>R*.45?F:B;
     sp(g,spr(c.c),s[0],s[1],30*s[2],.85);sp(g,spr([255,255,255]),s[0],s[1],8*s[2],1)}
   /* 원기둥 벽을 타고 오르는 빛 알 */
-  for(const s of spark){const a=s.a0+cur*STEP*RAD,yy=((s.y0*760-t*s.v)%760+760)%760-380,r=R-24,[sx,sy,k]=proj(r*Math.cos(a),yy,r*Math.sin(a)),e=1-Math.abs(yy)/380;
+  for(const s of (MOB&&!MSPARK?[]:spark)){const a=s.a0+cur*STEP*RAD,yy=((s.y0*760-t*s.v)%760+760)%760-380,r=R-24,[sx,sy,k]=proj(r*Math.cos(a),yy,r*Math.sin(a)),e=1-Math.abs(yy)/380;
     sp(B,spr(s.c),sx,sy,s.s*k,.5*e*e)}
   /* 얼음 유성 */
   stepIce(dt);for(const m of ice)drawIce(m.front?F:B,m,t);
@@ -510,16 +569,61 @@ new IntersectionObserver(es=>{run=es[0].isIntersecting}).observe(stage);
 function frame(now){
   const dt=Math.min(.05,(now-last)/1000);last=now;
   cur+=(target-cur)*.12;if(Math.abs(target-cur)<.0005)cur=target;
+  const near=Math.round(cur),nm=mod(near,N);
+  if(MOB)mobFrame();else{
   cyl.style.transform=`translateZ(${-R}px) translateY(${-cur*dy}px) rotateY(${-cur*STEP}deg)`;
   if(dy&&Math.floor(cur)!==base)layout();else place(false);
-  const near=Math.round(cur),nm=mod(near,N);
-  panels.forEach(p=>{if(p._i==null)return;const rel=p._i-cur,c=Math.cos(rel*STEP*RAD);let o=c>0?.2+.8*c*c:0;if(dy)o*=Math.max(0,1-Math.abs(rel)*.16);p.style.opacity=o.toFixed(3);p.classList.toggle('on',p._i===near)});
+  panels.forEach(p=>{if(p._i==null)return;const rel=p._i-cur,c=Math.cos(rel*STEP*RAD);let o=c>0?.2+.8*c*c:0;if(dy)o*=Math.max(0,1-Math.abs(rel)*.16);p.style.opacity=o.toFixed(3);p.classList.toggle('on',p._i===near)});}
   sides.forEach((a,i)=>a.classList.toggle('on',i===nm));
   document.getElementById('cnum').textContent=String(nm+1).padStart(2,'0');
   document.getElementById('cname').textContent=P[nm].side.replace('· ','');
   if(run&&!still&&!dlgOpen&&!document.hidden){T+=dt;drawFx(T,dt)}
   if(TEST)stage.dataset.t=target.toFixed(2)+'/'+cur.toFixed(2);
   requestAnimationFrame(frame);
+}
+
+/* ════ 폰 공용 ════ */
+let MSAY='옆으로 넘겨 보세요.';
+const mtext=t=>t.replace('휠을 내려 원기둥을 돌려 보세요.',MSAY).replace(/<br>/g,' ');
+const mcardHTML=(p,n)=>`<span class="num">${String(n+1).padStart(2,'0')}</span><small>${p.k}</small><h4>${p.t}</h4>`+
+  (p.p?`<p>${mtext(p.p)}</p>`:'')+(p.shot?`<div class="shot"><img src="${p.shot}" alt="" draggable="false"></div>`:'')+(p.tags?`<div class="tags">${p.tags.map(t=>`<em>${t}</em>`).join('')}</div>`:'')+
+  `<div class="mfoot">`+(p.play?(p.soon?`<span class="play soon">게임 시식해보기 · 준비 중</span>`:`<a class="play" href="${p.play}"${p.pc?` data-pc="${p.play}"`:''}>게임 시식해보기</a>`):'')+`<span class="more">자세히 보기 →</span></div>`;
+if(MOB){
+  /* 상세 창: 맨 위에서 끌어내리면 닫힘 */
+  let sd=null;
+  dlgBox.addEventListener('touchstart',e=>{sd=dlgBox.scrollTop<=0?{y:e.touches[0].clientY,d:0}:null},{passive:true});
+  dlgBox.addEventListener('touchmove',e=>{if(!sd)return;sd.d=Math.max(0,e.touches[0].clientY-sd.y);if(sd.d>0){dlgBox.style.transition='none';dlgBox.style.transform=`translateY(${sd.d}px)`}},{passive:true});
+  dlgBox.addEventListener('touchend',()=>{if(!sd)return;const d=sd.d;sd=null;dlgBox.style.transition='';dlgBox.style.transform='';if(d>110)closeDetail()});
+}
+
+/* ════ 폰 — 작은 원기둥 ════ */
+if(MOB){
+  const scene=document.getElementById('mscene'),ring=document.getElementById('mring');
+  ring.innerHTML='<div class="rim"></div><div class="rim"></div>'+P.map((p,s)=>`<div class="mcard" style="--pc:var(--${p.c})">${mcardHTML(p,s)}</div>`).join('');
+  const cards=[...ring.querySelectorAll('.mcard')],rims=[...ring.querySelectorAll('.rim')];pcPlays.push(...ring.querySelectorAll('a.play[data-pc]'));syncPlay();
+  let SX=260,RM=380;MSPARK=true;PO=.44;CY=.49;MDRIFT=()=>cur*60;
+  const measure=()=>{const w=cards[0].offsetWidth,h=Math.max(...cards.map(c=>c.offsetHeight));RM=w*N/(2*Math.PI)*1.04;FS=RM/R;SX=w*.85;
+    scene.style.perspective=(PSP*FS).toFixed(0)+'px';
+    cards.forEach((c,s)=>{c.style.left=-w/2+'px';c.style.top=-c.offsetHeight/2+'px';c.style.transform=`rotateY(${s*STEP}deg) translateZ(${RM.toFixed(1)}px)`});
+    rims.forEach((r,j)=>{const y=(j?1:-1)*(h/2+22);r.style.cssText=`width:${2*RM}px;height:${2*RM}px;left:${-RM}px;top:${-RM}px;transform:translateY(${y}px) rotateX(90deg)`})};
+  measure();addEventListener('resize',measure);
+  mobFrame=()=>{const near=Math.round(cur);ring.style.transform=`translateZ(${-RM}px) rotateY(${-cur*STEP}deg)`;
+    cards.forEach((c,s)=>{const i=s+N*Math.round((cur-s)/N),rel=i-cur,k=Math.cos(rel*STEP*RAD);c._i=i;c.style.opacity=(k>0?.18+.82*k*k:0).toFixed(3);c.classList.toggle('on',i===near)})};
+
+  let sw=null;
+  stage.addEventListener('pointerdown',e=>{if(dlgOpen||e.target.closest('a,button,.nav'))return;sw={x:e.clientX,y:e.clientY,t:target,ax:0,pts:[[e.clientX,performance.now()]],card:e.target.closest('.mcard')}});
+  addEventListener('pointermove',e=>{if(!sw)return;const dx=e.clientX-sw.x,dv=e.clientY-sw.y;
+    if(!sw.ax&&Math.hypot(dx,dv)>8)sw.ax=Math.abs(dx)>=Math.abs(dv)*.8?1:2;
+    if(sw.ax===1){target=cur=sw.t-dx/SX;sw.pts.push([e.clientX,performance.now()]);if(sw.pts.length>6)sw.pts.shift()}});
+  addEventListener('pointerup',e=>{if(!sw)return;const s=sw;sw=null;
+    if(!s.ax){if(s.card){const i=s.card._i;if(i===Math.round(cur))openDetail(mod(i,N));else target=i}return}
+    if(s.ax!==1)return;
+    const a=s.pts[0],b=s.pts[s.pts.length-1],v=(b[0]-a[0])/Math.max(1,b[1]-a[1]),now=s.t-(e.clientX-s.x)/SX,r0=Math.round(s.t);
+    let t=Math.abs(v)>.3?(v<0?Math.floor(now)+1:Math.ceil(now)-1):Math.round(now);
+    target=Math.max(r0-1,Math.min(r0+1,t))}); /* 한 번 쓸기에 한 장까지 */
+  addEventListener('pointercancel',()=>{if(sw){sw=null;target=Math.round(target)}});
+  addEventListener('keydown',e=>{if(dlgOpen)return;if(e.key==='ArrowRight')target=Math.round(target)+1;if(e.key==='ArrowLeft')target=Math.round(target)-1});
+  document.querySelector('.hint').lastChild.textContent='옆으로 넘겨 보세요';
 }
 /* 시험용: #k=판 · t=초 · still(멈춘 그림) · ice(가운데에 얼음 유성) · open=카드 */
 if(h.has('k'))target=cur=+h.get('k');

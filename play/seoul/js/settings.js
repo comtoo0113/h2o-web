@@ -398,7 +398,7 @@
       kind: "x",
       def: null,
       d: "꽂고 아무 단추나 누르시면 연결됩니다.",
-      d2: "단추 배치는 바꿀 수 없습니다 — 스팀에서는 스팀 입력(컨트롤러 설정)으로 바꾸시면 됩니다. 스팀 덱도 같은 배치입니다.",
+      d2: "단추 배치는 바꿀 수 없습니다.",
       html: () => {
         const nm = SX.pad && SX.pad.name();
         return nm ? `<b class="setPadNm">${esc(nm)}</b>` : `<span class="setDim">없습니다 — 꽂고 아무 단추나 누르시면 됩니다.</span>`;
@@ -632,7 +632,7 @@
     if (t === "keys") return subTabs() + (st.sub === "kb" ? kbHtml() : grpHtml(page("keys", st.sub)));
     let h = grpHtml(page(t));
     if (t === "gfx") h += `<p class="setNote">게임이 버벅이면 꾸밈 양 · 빛 품질 · 프레임 상한을 낮추시면 됩니다(보이는 범위와 판정은 그대로입니다).</p>`;
-    if (t === "pad" && SX.pad) h += `<div class="setGrp">단추 배치</div><div class="setPadT">${SX.pad.table()}</div><p class="setNote">단추 배치는 바꿀 수 없습니다 — 스팀에서는 스팀 입력(컨트롤러 설정)으로 바꾸시면 됩니다. 스팀 덱도 같은 배치입니다.</p>`;
+    if (t === "pad" && SX.pad) h += `<div class="setGrp">단추 배치</div><div class="setPadT">${SX.pad.table()}</div><p class="setNote">단추 배치는 바꿀 수 없습니다.</p>`;
     if (t === "access") h += `<p class="setNote">이 쪽은 다른 쪽에도 있는 항목을 한데 모아 둔 곳입니다. 여기서 바꾸면 그쪽도 같이 바뀝니다.</p>`;
     return h;
   }

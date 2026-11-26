@@ -1,0 +1,35 @@
+
+#lg { position: relative; width: 420px; max-width: 100%; height: 116px; margin: 0 auto; }
+#lg .lgld, #lg .lgf { position: absolute; inset: 0; display: none; }
+#lg.load .lgld, #lg.join .lgld { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
+#lg.login .lgf, #lg.nick .lgf, #lg.free .lgf, #lg.ready .lgf { display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+
+
+#lg .lr { display: none; position: relative; height: 52px; margin: 0; }
+#lg.login .lid, #lg.login .lpw, #lg.nick .lnk, #lg.free .lfree { display: grid; grid-template-columns: 96px 300px; gap: 12px; align-items: center; justify-content: center; }
+#lg .lr > span { text-align: right; font-size: 16px; color: var(--paper2); white-space: nowrap; overflow: hidden; }
+#lg input { box-sizing: border-box; width: 300px; height: 52px; margin: 0; padding: 0 14px; font: inherit; font-size: 20px; color: var(--paper); background: #11100d; border: 1px solid var(--brass2); outline: none; }
+#lg input:focus { border-color: var(--brass); }
+#lg #apw { padding-right: 82px; }
+#aeye { position: absolute; right: 14px; top: 8px; width: 64px; height: 36px; padding: 0; margin: 0; font-size: 14px; letter-spacing: 0; white-space: nowrap; }
+#lg.ready .lwho { display: block; line-height: 52px; font-size: 22px; color: var(--paper); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+
+#lg .ldbar { width: 360px; max-width: 86%; height: 14px; overflow: hidden; }
+#lg .ldc { position: absolute; inset: 0; overflow: hidden; transform: translateX(-100%); will-change: transform; }
+#lg .ldc > i { position: absolute; inset: 0; display: block; transform: translateX(100%); will-change: transform; background: linear-gradient(#b8913f, #7d5a22); transition: none; }
+#lg .ldbar[data-hj=bar] .ldc > i { background: var(--hjf, linear-gradient(#b8913f, #7d5a22)) 0 0 / var(--bw, 100%) 100% no-repeat !important; }
+#ldt { margin: 0; height: 20px; line-height: 20px; font-size: 15px; color: var(--paper2); white-space: nowrap; overflow: hidden; }
+
+
+#title #state { height: 40px; min-height: 40px; margin: 6px 0 0; line-height: 20px; font-size: 13px; overflow: hidden; }
+#title .lgb { display: flex; justify-content: center; gap: 12px; margin-top: 8px; }
+#title .lgb button { width: 200px; height: 52px; margin: 0; padding: 0; font-size: 18px; letter-spacing: 4px; white-space: nowrap; overflow: hidden; }
+#title .lgb button:disabled { opacity: .45; cursor: default; }
+
+
+#title.en .lgb button { font-size: 17px; letter-spacing: 1px; }
+#title.en #lg .lr > span { font-size: 15px; }
+#title.en #state { font-size: 12.5px; }
+
+#title .box > #tset:last-child { margin-bottom: 66px; }

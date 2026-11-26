@@ -7,6 +7,7 @@
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/hanji.css">
+<link rel="stylesheet" href="css/title.css">
 <style>
 
 #trialTag { position: fixed; right: 16px; top: 46px; z-index: 7; font-size: 12px; letter-spacing: 2px; color: var(--paper2); opacity: .72; pointer-events: none; }
@@ -51,8 +52,9 @@
     <p class="sub">체험판</p>
     <p class="intro">시작 마을과 그 둘레를 다니며 좀비를 잡고 오행 술법을 써 볼 수 있습니다.<br>체험판은 저장되지 않으며, 이야기는 첫머리에서 멈춰 있습니다.</p>
     <label class="nm">이름<input id="nm" maxlength="12" autocomplete="off" spellcheck="false" value="나그네"></label>
-    <button id="go">시작하기</button>
+    <div id="lg" class="lg load"><div class="lgld"><div class="bar ldbar"><div class="ldc"><i></i></div></div><p id="ldt">게임 파일을 받는 중입니다</p></div></div>
     <p id="state"></p>
+    <div class="lgb"><button id="go" disabled>준비 중입니다</button></div>
     <button id="tset" class="tset">설정</button>
     <div class="tlinks"><button type="button" onclick="location.href='../../index.html'">사이트로 돌아가기</button></div>
   </div>

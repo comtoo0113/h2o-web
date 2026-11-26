@@ -69,7 +69,7 @@ canvas.fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .panel .play{position:absolute;left:22px;bottom:13px;font-size:12px;letter-spacing:.03em;color:#fff;text-decoration:none;padding:5px 12px;border-radius:6px;border:1px solid color-mix(in srgb,var(--pc) 62%,transparent);background:color-mix(in srgb,var(--pc) 20%,transparent);transition:background .2s}
 .panel .play:hover{background:color-mix(in srgb,var(--pc) 34%,transparent)}
 .panel:not(.on) .play{pointer-events:none}
-.play.soon,.dlg-play.soon{opacity:.5;cursor:default;pointer-events:none}
+.play.soon,.dlg-play.soon,.play.pc-off,.dlg-play.pc-off{opacity:.5;cursor:default;pointer-events:none}
 
 .count{position:absolute;left:30px;bottom:28px;z-index:5;text-shadow:0 2px 14px rgba(0,0,0,.55)}
 .count b{font-size:42px;font-weight:300;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
@@ -175,7 +175,7 @@ const P=[
   d:{lead:'한 사람이 만드는 작은 게임 공방이에요. 도트로 그린 서울 생존 게임, 1인칭 조선 판타지, 어르신 · 어린이를 위한 협동 게임을 만들고 있어요.',
      pts:['서울탈출 — 봉쇄된 서울의 건물을 뒤지고 살아 나오는 도트 생존','조선좀비 — 낫 한 자루로 길을 나서는 1인칭 조선 판타지','기울기 볼 — 어르신 · 어린이가 함께 판을 기울이는 단순한 협동 게임'],
      media:[['v','assets/seoul/v_seoul.mp4','서울탈출','assets/seoul/10_bridge'],['i','assets/joseon/field','조선좀비'],['i','assets/tilt/tilt','기울기 볼'],['i','assets/seoul/09_roof','서울탈출 · 옥상']]}},
- {c:'c2',k:'도트 생존 · 같이 하기',t:'서울탈출',p:'봉쇄된 서울의 건물에 들어가 물건을 챙기고,<br>위로 올라가 빠져나오세요.',tags:['도트','생존','같이 하기'],side:'서울탈출',link:'games/seoul.html',lt:'서울탈출 페이지',play:'play/seoul/index.html',
+ {c:'c2',k:'도트 생존 · 같이 하기',t:'서울탈출',p:'봉쇄된 서울의 건물에 들어가 물건을 챙기고,<br>위로 올라가 빠져나오세요.',tags:['도트','생존','같이 하기'],side:'서울탈출',link:'games/seoul.html',lt:'서울탈출 페이지',play:'play/seoul/index.html',pc:1,
   d:{lead:'감염 사태로 봉쇄된 서울. 좁은 셸터에서 버티며 쓸 것을 찾아 무너진 건물로 들어가는 도트 생존 게임이에요. 살아 나오면 가져온 물건이 내 것, 쓰러지면 가진 것을 잃어요.',
      pts:['건물 — 연립주택 · 종합병원 · 고등학교 · 군부대 · 한강 다리 · 지하철 터널','위로 나가기 — 땅 위 출구가 아니라 옥상으로. 집라인 · 완강기 · 신호탄','같이 하기 — 한 팀 3명까지, 한 판에 4팀이 서로 다른 문으로','지금 — 개발 중'],
      media:[['v','assets/seoul/v_trailer.mp4','예고 영상','assets/seoul/09_roof',0],['i','assets/seoul/07_hospital','종합병원'],['i','assets/seoul/11_tunnel','지하철 터널'],['i','assets/seoul/10_bridge','한강 다리']]}},
@@ -187,7 +187,7 @@ const P=[
   d:{lead:'판이 끝나면 내 집 셸터로 돌아와요. 고시원 · 반지하 · 옥탑방부터 펜트하우스까지 집을 옮겨 가며, 가져온 물건을 진열하고 설비를 들여요.',
      pts:['꾸미기 — 가구를 놓고, 바닥재 · 벽지는 칸마다 따로','설비 — 발전기 · 작업대 · 약품 선반 · 텃밭','살림 — 요리 · 청소 · 한강 낚시','장터 — 사고팔기 · 보험 · 용병 · 사격장 · 헬스장 · 프리마켓'],
      media:[['v','assets/seoul/v_shelter.mp4','셸터','assets/seoul/01_shelter'],['i','assets/seoul/06_deco','꾸미기'],['i','assets/seoul/02_market','장터'],['i','assets/seoul/03_stash','보관함']]}},
- {c:'c3',k:'1인칭 · 판타지 조선',t:'조선좀비',p:'송장이 일어나는 조선 땅,<br>낫 한 자루로 길을 나서세요.',tags:['1인칭','도트 느낌 3D','같이 하기'],side:'조선좀비',link:'games/joseon.html',lt:'조선좀비 페이지',play:'play/joseon/index.html',
+ {c:'c3',k:'1인칭 · 판타지 조선',t:'조선좀비',p:'송장이 일어나는 조선 땅,<br>낫 한 자루로 길을 나서세요.',tags:['1인칭','도트 느낌 3D','같이 하기'],side:'조선좀비',link:'games/joseon.html',lt:'조선좀비 페이지',play:'play/joseon/index.html',pc:1,
   d:{lead:'송장이 일어나 사람을 무는 판타지 조선을 1인칭으로 걷는 게임이에요. 낫 · 도끼 · 환도 · 창 같은 옛 무기와 오행 술법으로 싸우고, 마을 사람들의 부탁을 들어주며 낫지 않는 병의 까닭을 찾아가요.',
      pts:['싸움 — 베기 · 힘 베기 · 막기 · 튕겨내기 · 등 뒤 암살 · 발차기','술법 — 나무 · 불 · 흙 · 쇠 · 물 다섯 갈래','마을살이 — 평판 · 장날 · 배고픔 · 밤이면 닫히는 문','같이 하기 — 함께 들어온 사람도 같은 조건'],
      media:[['i','assets/joseon/field','들판'],['i','assets/joseon/farm_fight','논밭 싸움'],['i','assets/joseon/magic','술법'],['i','assets/joseon/boss_jangsu','장수']]}},
@@ -214,8 +214,14 @@ let html='', base=0;
 for(let j=-5;j<=5;j++)html+=`<div class="ringc" data-y="${j*DYH}" style="width:${2*R}px;height:${2*R}px;left:${-R}px;top:${-R}px"></div>`;
 for(let j=0;j<16;j++)html+=`<div class="rib" data-a="${j*22.5+11.25}"></div>`;
 for(let s=0;s<POOL;s++){const p=P[s%N];html+=`<div class="panel" data-i="${s}" style="--pc:var(--${p.c})"><span class="num">${String(s%N+1).padStart(2,'0')}</span><small>${p.k}</small><h4>${p.t}</h4>`+
-  (p.p?`<p>${p.p}</p>`:'')+(p.shot?`<div class="shot"><img src="${p.shot}" alt="" draggable="false"></div>`:'')+(p.tags?`<div class="tags">${p.tags.map(t=>`<em>${t}</em>`).join('')}</div>`:'')+(p.play?(p.soon?`<span class="play soon">게임 시식해보기 · 준비 중</span>`:`<a class="play" href="${p.play}">게임 시식해보기</a>`):'')+`<span class="more">자세히 보기 →</span></div>`}
+  (p.p?`<p>${p.p}</p>`:'')+(p.shot?`<div class="shot"><img src="${p.shot}" alt="" draggable="false"></div>`:'')+(p.tags?`<div class="tags">${p.tags.map(t=>`<em>${t}</em>`).join('')}</div>`:'')+(p.play?(p.soon?`<span class="play soon">게임 시식해보기 · 준비 중</span>`:`<a class="play" href="${p.play}"${p.pc?` data-pc="${p.play}"`:''}>게임 시식해보기</a>`):'')+`<span class="more">자세히 보기 →</span></div>`}
 cyl.innerHTML=html;
+/* 폰 · 키보드 없는 태블릿(터치만)에선 PC 게임(서울탈출 · 조선좀비, pc:1) 시식 단추를 막고 글을 바꿈 — 기울기 볼은 그대로 */
+const TOUCH=matchMedia('(hover: none) and (pointer: coarse)');
+function setPlay(a,href,pc){const off=!!pc&&TOUCH.matches;a.classList.toggle('pc-off',off);
+  if(off){a.removeAttribute('href');a.setAttribute('aria-disabled','true');a.textContent='시식은 PC에서 할 수 있어요'}else{a.href=href;a.removeAttribute('aria-disabled');a.textContent='게임 시식해보기'}}
+const pcPlays=[...cyl.querySelectorAll('a.play[data-pc]')], syncPlay=()=>pcPlays.forEach(a=>setPlay(a,a.dataset.pc,1));
+syncPlay();
 const panels=[...cyl.querySelectorAll('.panel')], rings=[...cyl.querySelectorAll('.ringc')], ribs=[...cyl.querySelectorAll('.rib')];
 document.getElementById('side').innerHTML=P.map((p,i)=>`<a data-i="${i}" style="--pc:var(--${p.c})"><i></i>${p.side}</a>`).join('');
 const sides=[...document.querySelectorAll('.side a')];
@@ -251,7 +257,7 @@ function openDetail(n){
   dlg.querySelector('.dlg-lead').textContent=d.lead;
   dlg.querySelector('.dlg-txt ul').innerHTML=d.pts.map(s=>{const k=s.indexOf(' — ');return `<li>${k>0?`<b>${s.slice(0,k)}</b> — ${s.slice(k+3)}`:s}</li>`}).join('');
   const go=dlg.querySelector('.dlg-go:not(.dlg-play)');go.href=p.link;go.textContent=p.lt+' →';
-  const pl=dlg.querySelector('.dlg-play');pl.hidden=!p.play;if(p.play){pl.classList.toggle('soon',!!p.soon);if(p.soon){pl.removeAttribute('href');pl.setAttribute('aria-disabled','true');pl.textContent='게임 시식해보기 · 준비 중'}else{pl.href=p.play;pl.removeAttribute('aria-disabled');pl.textContent='게임 시식해보기'}}
+  const pl=dlg.querySelector('.dlg-play');pl.hidden=!p.play;if(p.play){pl.classList.toggle('soon',!!p.soon);if(p.soon){pl.classList.remove('pc-off');pl.removeAttribute('href');pl.setAttribute('aria-disabled','true');pl.textContent='게임 시식해보기 · 준비 중'}else setPlay(pl,p.play,p.pc)}
   dlg.querySelector('.dlg-txt .tags').innerHTML=(p.tags||[]).map(t=>`<em>${t}</em>`).join('');
   dlg.classList.add('open');dlgOpen=true;document.body.style.overflow='hidden';dlgBox.scrollTop=0;
   {const mv=dlg.querySelector('.dlg-main video[autoplay]');if(mv)mv.play().catch(()=>{});}
@@ -262,6 +268,7 @@ dlg.querySelector('.dlg-th').addEventListener('click',e=>{const t=e.target.close
   dlg.querySelectorAll('.dlg-th .ph').forEach(x=>x.classList.toggle('on',x===t));
   dlg.querySelector('.dlg-main').innerHTML=phHTML(P[dlgCard].d.media[+t.dataset.m])});
 dlg.querySelector('.dlg-bg').onclick=closeDetail; dlg.querySelector('.dlg-x').onclick=closeDetail;
+TOUCH.addEventListener('change',()=>{syncPlay();const p=P[dlgCard];if(dlgOpen&&p.play&&!p.soon)setPlay(dlg.querySelector('.dlg-play'),p.play,p.pc)});
 
 /* ── 휠 · 끌기 · 누르기 · 키 ── */
 let wAcc=0, wLast=0;

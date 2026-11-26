@@ -3,6 +3,13 @@
 const nav=document.querySelector('.nav');
 const onS=()=>nav&&nav.classList.toggle('solid',scrollY>24);onS();addEventListener('scroll',onS,{passive:true});
 
+/* 폰 · 키보드 없는 태블릿(터치만)에선 PC 게임 시식 단추(.btn.try[data-pc] — 서울탈출 · 조선좀비)를 막고 글을 바꿈. 기울기 볼은 그대로 */
+const touch=matchMedia('(hover: none) and (pointer: coarse)');
+const pcTry=[...document.querySelectorAll('.btn.try[data-pc]')].map(a=>[a,a.getAttribute('href'),a.textContent]);
+const syncTry=()=>pcTry.forEach(([a,h,t])=>{const off=touch.matches;a.classList.toggle('pc-off',off);
+  if(off){a.removeAttribute('href');a.setAttribute('aria-disabled','true');a.textContent='시식은 PC에서 할 수 있어요'}else{a.setAttribute('href',h);a.removeAttribute('aria-disabled');a.textContent=t}});
+syncTry();touch.addEventListener('change',syncTry);
+
 /* 사진 크게 보기 — .ph[data-big] 를 누르면. 같은 [data-gal] 묶음 안에서 앞뒤로 */
 const lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');
 lb.innerHTML='<img alt=""><p></p><button class="x" aria-label="닫기">×</button><button class="pv" aria-label="앞 사진">‹</button><button class="nx" aria-label="다음 사진">›</button>';
